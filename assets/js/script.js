@@ -1,12 +1,19 @@
 AOS.init({
   offset: '140', // 50% viewport height ka offset
 });
+
 document.addEventListener("DOMContentLoaded", function() {
-  const loader = document.querySelector('.loader');
-  setTimeout(() => {
-    loader.style.opacity = '0';
-    loader.style.display = 'none';
-  }, 3000);
+  try {
+    const loader = document.querySelector('.loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.display = 'none';
+      }, 3000);
+    }
+  } catch (error) {
+    console.error('Error handling loader:', error);
+  }
 });
 
 // Header functionality
@@ -210,22 +217,26 @@ function initializeSliders() {
 
 // Initialize menu system
 async function initializeMenu() {
-  // First, check if the main menu container exists on the current page.
-  const menuContainer = document.getElementById('our-menus');
+  try {
+    // First, check if the main menu container exists on the current page.
+    const menuContainer = document.getElementById('our-menus');
 
-  // If the container is NOT found, stop the function immediately.
-  if (!menuContainer) {
-    return;
-  }
+    // If the container is NOT found, stop the function immediately.
+    if (!menuContainer) {
+      return;
+    }
 
-  // If the container IS found, proceed with building the menu.
-  const menuData = await loadMenuData();
-  if (menuData) {
-    renderCategoryIndicators(menuData.categories);
-    renderMenuItems(menuData.categories);
-    initializeSliders();
-    // Note: do not call addMoroccanDecorations() automatically to avoid
-    // inline style changes that can break the original design.
+    // If the container IS found, proceed with building the menu.
+    const menuData = await loadMenuData();
+    if (menuData) {
+      renderCategoryIndicators(menuData.categories);
+      renderMenuItems(menuData.categories);
+      initializeSliders();
+      // Note: do not call addMoroccanDecorations() automatically to avoid
+      // inline style changes that can break the original design.
+    }
+  } catch (error) {
+    console.error('Error initializing menu:', error);
   }
 }
 
@@ -260,158 +271,182 @@ document.addEventListener('DOMContentLoaded', initializeMenu);
 // });
 
 // Testimonials Slider
-$('.testimonials .slider-content').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: false,
-  speed: 300,
-  asNavFor: '.testimonials .slider-nav',
-  draggable: true,
-  swipe: true,
-});
+try {
+  $('.testimonials .slider-content').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: false,
+    speed: 300,
+    asNavFor: '.testimonials .slider-nav',
+    draggable: true,
+    swipe: true,
+  });
 
-// Navigation Slider for Testimonials
-$('.testimonials .slider-nav').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  asNavFor: '.testimonials .slider-content',
-  dots: false,
-  focusOnSelect: true,
-  centerMode: true, // Center the active slide
-  centerPadding: '0px',
-  draggable: true,
-  swipe: true,
-  arrows: false, // Disable navigation arrows
-  infinite: true,
-});
+  // Navigation Slider for Testimonials
+  $('.testimonials .slider-nav').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.testimonials .slider-content',
+    dots: false,
+    focusOnSelect: true,
+    centerMode: true, // Center the active slide
+    centerPadding: '0px',
+    draggable: true,
+    swipe: true,
+    arrows: false, // Disable navigation arrows
+    infinite: true,
+  });
+} catch (error) {
+  console.error('Error initializing testimonials slider:', error);
+}
 
 // Our Chefs Slider
-$('.our-chefs .our-chef-slider-wrapper').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  arrows: true,
-  focusOnSelect: true,
-  centerMode: true, // Center the active slide
-  centerPadding: '0px',
-  fade: false,
-  speed: 300,
-  draggable: false,
-  swipe: false,
-  prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
-  nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
-  responsive: [
-    {
-      breakpoint: 990,
-      settings: {
-        slidesToShow: 1,
+try {
+  $('.our-chefs .our-chef-slider-wrapper').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    focusOnSelect: true,
+    centerMode: true, // Center the active slide
+    centerPadding: '0px',
+    fade: false,
+    speed: 300,
+    draggable: false,
+    swipe: false,
+    prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
+    responsive: [
+      {
+        breakpoint: 990,
+        settings: {
+          slidesToShow: 1,
+        }
       }
-    }
-  ]
-});
+    ]
+  });
+} catch (error) {
+  console.error('Error initializing chefs slider:', error);
+}
 
 // Story Slider
-$('.story-content').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: false,
-  speed: 300,
-  asNavFor: '.story-indicators .row',
-  draggable: true,
-  swipe: true,
-});
+try {
+  $('.story-content').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: false,
+    speed: 300,
+    asNavFor: '.story-indicators .row',
+    draggable: true,
+    swipe: true,
+  });
 
-// Navigation Slider for Story
-$('.story-indicators > .row').slick({
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  asNavFor: '.story-content',
-  dots: false,
-  focusOnSelect: true,
-  centerPadding: '0px',
-  draggable: true,
-  swipe: true,
-  arrows: false, // Disable navigation arrows
-  infinite: true,
-  prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
-  nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
+  // Navigation Slider for Story
+  $('.story-indicators > .row').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    asNavFor: '.story-content',
+    dots: false,
+    focusOnSelect: true,
+    centerPadding: '0px',
+    draggable: true,
+    swipe: true,
+    arrows: false, // Disable navigation arrows
+    infinite: true,
+    prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        }
       }
-    }
-  ]
-});
+    ]
+  });
+} catch (error) {
+  console.error('Error initializing story slider:', error);
+}
 
 // Partner Slider
-$('.partner-slider').slick({
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: false,
-  speed: 300,
-  draggable: true,
-  swipe: true,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
+try {
+  $('.partner-slider').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: false,
+    speed: 300,
+    draggable: true,
+    swipe: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
       }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      }
-    }
-  ]
-});
+    ]
+  });
+} catch (error) {
+  console.error('Error initializing partner slider:', error);
+}
 
 
-$('.chef-choise-slider').slick({
-  slidesToShow: 3,
-  vertical: true,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: false,
-  speed: 300,
-  draggable: true,
-  swipe: true,
-  responsive: [
-    {
-      breakpoint: 786,
-      settings: {
-        slidesToShow: 1.7,
-        slidesToScroll: 1,
+try {
+  $('.chef-choise-slider').slick({
+    slidesToShow: 3,
+    vertical: true,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: false,
+    speed: 300,
+    draggable: true,
+    swipe: true,
+    responsive: [
+      {
+        breakpoint: 786,
+        settings: {
+          slidesToShow: 1.7,
+          slidesToScroll: 1,
+        }
       }
-    }
-  ]
-});
+    ]
+  });
 
-// Add click events for the chevron icons
-$('.chef-choise-icons .fa-chevron-up').on('click', function() {
-  $('.chef-choise-slider').slick('slickPrev');
-});
+  // Add click events for the chevron icons
+  $('.chef-choise-icons .fa-chevron-up').on('click', function() {
+    $('.chef-choise-slider').slick('slickPrev');
+  });
 
-$('.chef-choise-icons .fa-chevron-down').on('click', function() {
-  $('.chef-choise-slider').slick('slickNext');
-});
+  $('.chef-choise-icons .fa-chevron-down').on('click', function() {
+    $('.chef-choise-slider').slick('slickNext');
+  });
+} catch (error) {
+  console.error('Error initializing chef choice slider:', error);
+}
 
 // Update copyright year
-document.getElementById('copyrightCurrentYear').textContent = new Date().getFullYear();
+try {
+  document.getElementById('copyrightCurrentYear').textContent = new Date().getFullYear();
+} catch (error) {
+  console.error('Error updating copyright year:', error);
+}
 
 // Lightbox functionality
 function initializeLightbox() {
