@@ -1202,7 +1202,7 @@ header.scrolled {
 
 /* testimonial start */
 .testimonials {
-  background-image: url("./../images/testi-bg.jpg");
+  background-image: url("./../images/testimonial-bg.jpg");
   /* background-color: black; */
   background-position: cover;
   background-repeat: no-repeat;
