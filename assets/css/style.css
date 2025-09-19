@@ -8,63 +8,72 @@
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-Black.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-Black.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-Bold.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-ExtraBold.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-ExtraBold.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-ExtraBold.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-ExtraLight.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-ExtraLight.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-Light.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-Light.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-Medium.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-Medium.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-Regular.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-Regular.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-SemiBold.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-SemiBold.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Heebo";
-  src: url("./../fonts/Heebo/static/Heebo-Thin.ttf") format("truetype");
+  src: url("./../fonts/Heebo/static/Heebo-Thin.woff2") format("woff2"),
+       url("./../fonts/Heebo/Heebo-VariableFont_wght.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
@@ -217,12 +226,12 @@
 
 /* Color Variables - Moroccan Theme */
 :root {
-  --primary-color: #143F38; /* Moroccan Gold */
+  --primary-color: #075548; /* Moroccan Gold */
   --secondary-color: #8B4513; /* Moroccan Brown */
   --background-color: #FDF5E6; /* Warm Cream */
   --text-color: #2F1B14; /* Dark Brown */
   --heading-color: #8B0000; /* Deep Red */
-  --border-color: #D2B48C; /* Tan */
+  --border-color: #ffedd4; /* Tan */
   --text-color-white: #ffff;
   --moroccan-red: #CC4125; /* Traditional Moroccan Red */
   --moroccan-orange: #E67E22; /* Warm Orange */
@@ -337,11 +346,13 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center; /* added this */
   flex-direction: column;
   z-index: 12;
 }
 
 .loader p {
+  padding: 40px 0; /* added this */
   font-family: "Pacifico", cursive;
   font-size: 60px;
 }
@@ -431,6 +442,10 @@ header.scrolled {
 
 .logo a i {
   font-size: 40px;
+}
+
+.logo a:hover {
+  color: var(--text-color-white);
 }
 
 .menus > ul {
@@ -1040,6 +1055,7 @@ header.scrolled {
   /* position: relative; */
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 .slider-indicators-wrapper .slider-indicators.slick-current .indicators-icon,
@@ -1070,6 +1086,16 @@ header.scrolled {
   top: 50px;
   right: -100px;
   background-color: var(--border-color);
+}
+
+@media (min-width: 992px) {
+  .slider-indicators-wrapper {
+    /* Adjust these padding values to get the exact spacing you want */
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: center; 
+  }
 }
 
 .our-menu .item-wrapper,
@@ -1128,6 +1154,7 @@ header.scrolled {
   color: var(--primary-color);
   font-family: "Pacifico", cursive;
   font-size: 24px;
+  margin-right: 15px;
 }
 
 .our-menu .item-wrapper .item-right .price-symbol,
@@ -2442,4 +2469,84 @@ footer p {
 
 .author-name:hover {
   color: var(--primary-color);
+}
+
+
+
+/* book-a-table button end */
+
+/* view-menu-btn (Secondary Button) start */
+
+.view-menu-btn {
+  background-color: transparent;
+  width: 200px;
+  text-align: center;
+  border-radius: 50px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid white; /* Outline style */
+}
+
+.view-menu-btn > .anim-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: white; /* Animation layer to fill with white */
+  transition: width 0.3s ease, right 0.3s ease;
+}
+
+.view-menu-btn:hover > .anim-layer {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.view-menu-btn:hover a {
+  color: var(--primary-color); /* On hover, text color changes */
+}
+
+.view-menu-btn a {
+  display: block;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 12px 24px; /* Adjusted padding for border */
+  color: white; /* Initial text color */
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* view-menu-btn (Secondary Button) end */
+
+@media (max-width: 768px) { /* This code only targets mobile-sized screens */
+
+  .banner {
+    height: 100vh; /* This is the key: makes the banner 100% of the screen height */
+    padding-top: 0;    /* Removes the original padding to make room */
+    padding-bottom: 0; /* Removes the original padding to make room */
+  }
+
+  .banner .container {
+    padding-top: 0;    /* Removes extra padding from the inner container */
+    padding-bottom: 0; /* Removes extra padding from the inner container */
+  }
+
+  .banner .banner-content {
+    padding-right: 1rem !important; /* Overrides the 'pe-5' class */
+  }
+
+  .banner .banner-content h1 {
+    font-size: 2.5rem; /* Makes the title a better size for mobile */
+  }
+
+  .banner .banner-buttons {
+    justify-content: center; /* Centers the two buttons */
+  }
+
 }

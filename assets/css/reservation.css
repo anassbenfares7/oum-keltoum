@@ -1,0 +1,134 @@
+/* Reservation Form Styles */
+.reservation-form {
+    background-color: var(--color-background, #FFF8DC);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.reservation-form form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.input-group:focus-within {
+    border-color: var(--color-primary, #d4af37);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+}
+
+.icon-wrapper {
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--color-primary, #d4af37);
+}
+
+/* Form Controls */
+.form-control,
+.form-select {
+    height: 50px;
+    background-color: transparent !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .reservation-form {
+        padding: 1rem;
+    }
+
+    .form-control,
+    .form-select {
+        height: 45px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .icon-wrapper {
+        padding: 0.5rem;
+    }
+
+    /* Larger touch targets */
+    .reservation-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+    }
+}
+
+/* Alert Styling */
+#formAlert {
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Submit Button */
+.reservation-btn {
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.reservation-btn:hover {
+    background-color: #046e5d;
+    opacity: 0.9;
+}
+
+.reservation-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Date and Time Inputs */
+input[type="date"],
+input[type="time"] {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Custom styling for invalid fields */
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc3545;
+    background-image: none;
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+    color: #dc3545;
+    margin-top: 0.25rem;
+    padding: 0 1rem;
+}
+
+/* Loading Spinner */
+.spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+}

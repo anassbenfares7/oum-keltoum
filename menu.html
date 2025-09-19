@@ -1,25 +1,147 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Menu d'OUM KELTOUM — découvrez nos tajines, couscous et entrées traditionnelles.">
+  <meta name="theme-color" content="#d4af37">
+  <meta property="og:title" content="Menu — OUM KELTOUM">
+  <meta property="og:description" content="Parcourez notre menu de plats marocains traditionnels.">
+  <meta property="og:image" content="https://www.oumkeltoum.ma/assets/images/featured-box-bg-1.jpg">
+  <link rel="canonical" href="https://www.oumkeltoum.ma/menu.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Menu","name":"Menu OUM KELTOUM"}
+  </script>
+    
+    <!-- START: Cache-Control Directives -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- END: Cache-Control Directives -->
+    
+    <link rel="icon" type="image/x-icon" href="./assets/images/banner-img.png" />
     <title>OUM KELTOUM - Menu Marocain</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- YOUR CRITICAL CSS (Remains the same) -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/menu-lightbox.css" />
+
+    <!-- NON-BLOCKING CSS (All external stylesheets are loaded in the background) -->
+
+    <!-- Google Fonts (non-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
+
+    <!-- Other Libraries (non-blocking) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+
+    <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"></noscript>
+
+    <link rel="preload" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"></noscript>
+    <style>
+      :root {
+        --color-primary: #d4af37;
+        --color-secondary: #8B4513;
+        --color-accent: #C19A6B;
+        --color-text: #4A4A4A;
+        --color-background: #FFF8DC;
+      }
+
+      body {
+        background-color: var(--color-background);
+      }
+
+      .menu-page {
+        background-color: #fff;
+      }
+
+      .menu-category-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+      
+      .menu-category-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background-color: #d4af37;
+      }
+      
+      .item-wrapper {
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      
+      .item-left h5 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: #222;
+      }
+      
+      .item-left p {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 0;
+        line-height: 1.4;
+      }
+      
+      .item-right .item-price {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: #d4af37;
+        font-size: 1.1rem;
+      }
+      
+      .item-right .price-symbol {
+        font-size: 0.8rem;
+        margin-right: 2px;
+      }
+      
+      @media (max-width: 768px) {
+        .menu-category-title {
+          font-size: 1.5rem;
+        }
+        
+        .item-left h5 {
+          font-size: 1rem;
+        }
+        
+        .item-left p {
+          font-size: 0.85rem;
+        }
+        
+        .item-right .item-price {
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="loader">
@@ -70,12 +192,6 @@
           </ul>
         </div>
         <div class="icons">
-          <a class="text-decoration-none" id="searchBtn" href="#">
-            <i class="fa fa-search me-3 text-dark"></i>
-          </a>
-          <a class="text-decoration-none" id="shoppingbutton" href="#">
-            <i class="fa fa-shopping-bag me-3 text-dark"></i>
-          </a>
         </div>
       </div>
 
@@ -93,12 +209,6 @@
         </div>
         <div class="mobile-nav-icons">
           <div class="icons">
-            <a class="text-decoration-none" id="searchBtnMobile" href="#">
-              <i class="fa fa-search me-3 text-dark"></i>
-            </a>
-            <a class="text-decoration-none" id="shoppingbuttonMobile" href="#">
-              <i class="fa fa-shopping-bag me-3 text-dark"></i>
-            </a>
           </div>
         </div>
         <div class="position-fixed w-75 bg-white h-100 top-0 start-0" id="mobile-menu">
@@ -138,111 +248,6 @@
       </div>
     </header>
 
-    <div class="search-bar d-none" id="search-container">
-      <div class="close-btn" id="search-close-btn">
-        <i class="fa fa-close"></i>
-      </div>
-      <div class="search-bar-wrapper">
-        <input type="search" placeholder="Rechercher un plat..." />
-        <div class="search-button">
-          <a href="#"><i class="fa fa-search"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="shopping-cart">
-      <div class="shopping-cart-header d-flex justify-content-between">
-        <h2>Votre Panier</h2>
-        <i class="fa fa-close"></i>
-      </div>
-      <div class="shopping-cart-body">
-        <div class="row shopping-cart-item d-flex justify-content-between">
-          <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-2a.jpg" alt="">
-          </div>
-          <div class="col-8">
-            <h3>Salade Marocaine</h3>
-            <div class="shopping-cart-counter">
-              <i class="fa fa-minus"></i>
-              <span>1</span>
-              <i class="fa fa-plus"></i>
-            </div>
-          </div>
-          <div class="col-2 item-price d-flex align-items-end">
-            <p class="mb-0 text-center">MAD 45</p>
-          </div>
-        </div>
-        <div class="row shopping-cart-item d-flex justify-content-between">
-          <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-2b.jpg" alt="">
-          </div>
-          <div class="col-8">
-            <h3>Briouates aux Crevettes</h3>
-            <div class="shopping-cart-counter">
-              <i class="fa fa-minus"></i>
-              <span>1</span>
-              <i class="fa fa-plus"></i>
-            </div>
-          </div>
-          <div class="col-2 item-price d-flex align-items-end">
-            <p class="mb-0 text-center">MAD 85</p>
-          </div>
-        </div>
-        <div class="row shopping-cart-item d-flex justify-content-between">
-          <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-2c.jpg" alt="">
-          </div>
-          <div class="col-8">
-            <h3>Tajine d'Agneau aux Pruneaux</h3>
-            <div class="shopping-cart-counter">
-              <i class="fa fa-minus"></i>
-              <span>1</span>
-              <i class="fa fa-plus"></i>
-            </div>
-          </div>
-          <div class="col-2 item-price d-flex align-items-end">
-            <p class="mb-0 text-center">MAD 120</p>
-          </div>
-        </div>
-        <div class="row shopping-cart-item d-flex justify-content-between">
-          <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-2d.jpg" alt="">
-          </div>
-          <div class="col-8">
-            <h3>Couscous Royal</h3>
-            <div class="shopping-cart-counter">
-              <i class="fa fa-minus"></i>
-              <span>1</span>
-              <i class="fa fa-plus"></i>
-            </div>
-          </div>
-          <div class="col-2 item-price d-flex align-items-end">
-            <p class="mb-0 text-center">MAD 150</p>
-          </div>
-        </div>
-      </div>
-      <div class="shopping-cart-footer">
-        <div class="d-flex justify-content-between px-3 py-2">
-          <div>
-            <h2 class="mb-0">Sous-total</h2>
-            <p class="mb-0">Livraison et taxes calculées à la commande</p>
-          </div>
-          <div class="d-flex align-items-end">
-            <p class="footet-total-price mb-0">MAD 400</p>
-          </div>
-        </div>
-          <div class="d-flex justify-content-between px-2">
-            <div class="footer-checkout">
-              <div class="anim-layer"></div>
-              <a href="#">Commander</a>
-            </div>
-            <div class="footer-shopping">
-              <div class="anim-layer"></div>
-              <a href="#">Continuer</a>
-            </div>
-          </div>
-      </div>
-    </div>
 
     <main class="menu-page">
         <section class="page-banner d-flex align-items-center">
@@ -259,418 +264,132 @@
           </div>
         </section>
 
-        <section class="our-menu pt-5 my-5">
-            <div class="container">
+        <section class="our-menu pt-5 mb-5">
+            <div class="container-fluid">
                 <div class="row" data-aos="fade-right">
                     <h2 class="text-center display-6 fw-bold">Nos Spécialités</h2>
                     <div class="menu-line d-flex justify-content-center align-items-center">
                         <span></span>
                     </div>
                 </div>
-              <div class="row  position-relative" data-aos="fade-left">
+              <div class="row  position-relative" id="sliders-indicator" style="width: 100%; margin: auto;" data-aos="fade-left">
                 <div class="slider slider-indicators-wrapper justify-content-center">
-                  <div class="slider-indicators">
-                    <div class="indicators-icon active text-center">
-                      <i class="fas fa-leaf fa-2x"></i>
-                    </div>
-                    <div class="indicators-title text-center">
-                      <h5>
-                        Entrées
-                      </h5>
-                    </div>
-                  </div>
-                  <div class="slider-indicators">
-                    <div class="indicators-icon text-center">
-                      <i class="fas fa-utensils fa-2x"></i>
-                    </div>
-                    <div class="indicators-title text-center">
-                      <h5>
-                        Tajines
-                      </h5>
-                    </div>
-                  </div>
-                  <div class="slider-indicators">
-                    <div class="indicators-icon text-center">
-                      <i class="fas fa-bowl-food fa-2x"></i>
-                    </div>
-                    <div class="indicators-title text-center">
-                      <h5>
-                        Couscous
-                      </h5>
-                    </div>
-                  </div>
-                  <div class="slider-indicators">
-                    <div class="indicators-icon text-center">
-                      <i class="fas fa-ice-cream fa-2x"></i>
-                    </div>
-                    <div class="indicators-title text-center">
-                      <h5>
-                        Desserts
-                      </h5>
-                    </div>
-                  </div>
-                  <div class="slider-indicators">
-                    <div class="indicators-icon text-center">
-                      <i class="fas fa-mug-hot fa-2x"></i>
-                    </div>
-                    <div class="indicators-title text-center">
-                      <h5>
-                        Boissons
-                      </h5>
-                    </div>
-                  </div>
+                  <!-- Category indicators will be dynamically inserted here -->
                 </div>
               </div>
               <div id="our-menus" class="slider" data-aos="fade-up">
-                <div>
-                  <div class="row my-5 py-3">
-                  <div class="col-lg-5">
-                    <div class="pb-5 pb-lg-0">
-                      <img width="90%" src="./assets/images/menu-slider-dessert.png" alt="">
-                    </div>
-                  </div>
-                  <div class="col-lg-7">
-                    <div class="item-wrapper d-flex justify-content-between">
-                      <div class="item-left">
-                        <h5>Salade Marocaine</h5>
-                        <p>Salade fraîche aux tomates, concombres, oignons et épices marocaines</p>
-                      </div>
-                      <div class="item-right">
-                        <span class="item-price">
-                        <span class="price-symbol">MAD</span>
-                          45</span>
-                        <div class="item-btn">
-                          <a href="#">Commander</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-wrapper d-flex justify-content-between">
-                      <div class="item-left">
-                        <h5>Briouates aux Crevettes</h5>
-                        <p>Délicieux feuilletés croustillants farcis aux crevettes et épices</p>
-                      </div>
-                      <div class="item-right">
-                        <span class="item-price">
-                        <span class="price-symbol">MAD</span>
-                          85</span>
-                        <div class="item-btn">
-                          <a href="#">Commander</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-wrapper d-flex justify-content-between">
-                      <div class="item-left">
-                        <h5>Pastilla au Poisson</h5>
-                        <p>Feuilleté traditionnel au poisson, vermicelles et épices douces</p>
-                      </div>
-                      <div class="item-right">
-                        <span class="item-price">
-                        <span class="price-symbol">MAD</span>
-                          95</span>
-                        <div class="item-btn">
-                          <a href="#">Commander</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-wrapper d-flex justify-content-between">
-                      <div class="item-left">
-                        <h5>Zaalouk</h5>
-                        <p>Caviar d'aubergines grillées aux tomates et épices marocaines</p>
-                      </div>
-                      <div class="item-right">
-                        <span class="item-price">
-                        <span class="price-symbol">MAD</span>
-                          35</span>
-                        <div class="item-btn">
-                          <a href="#">Commander</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-wrapper d-flex justify-content-between">
-                      <div class="item-left">
-                        <h5>Harira Traditionnelle</h5>
-                        <p>Soupe marocaine aux lentilles, tomates et épices parfumées</p>
-                      </div>
-                      <div class="item-right">
-                        <span class="item-price">
-                        <span class="price-symbol">MAD</span>
-                          40</span>
-                        <div class="item-btn">
-                          <a href="#">Commander</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <!-- Menu items will be dynamically inserted here -->
+              </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="menu-lightbox">
+            <div class="menu-lightbox-content">
+                <img src="" alt="Aperçu du plat" class="menu-lightbox-image" loading="lazy">
+                <div class="menu-lightbox-placeholder" style="display: none;">
+                    <i class="fas fa-image"></i>
+                    <p>Image non disponible</p>
+                </div>
+                <div class="menu-lightbox-title"></div>
+                <button class="menu-lightbox-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="footer-content col-xl-8  px-4">
+            <div class="row">
+              <div class="col-lg-6 px-0">
+                <div class="logo" data-aos="fade-down-right">
+                  <a href="./index.html">
+                    <i class="fa fa-utensils me-3"></i>
+                    <h1 class="mb-0">OUM KELTOUM</h1>
+                  </a>
+                </div>
+              </div>
+              <div data-aos="fade-down" class="col-lg-6 pt-4 pt-lg-0 d-flex align-items-center justify-content-start justify-content-lg-end">
+                <div class="social-icons d-flex">
+                  <ul class="d-flex mb-0 ps-0">
+                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-pinterest"></i></a></li>
+                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-google-plus"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row pt-5 content-desc" data-aos="fade-right">
+              <p class="px-0">Découvrez l'authenticité de la cuisine marocaine chez OUM KELTOUM. Depuis 2008, nous vous proposons des plats traditionnels préparés avec des épices authentiques importées directement du Maroc. Notre restaurant familial vous accueille dans une ambiance chaleureuse et conviviale, fidèle à l'hospitalité marocaine.</p>
+            </div>
+            <div class="row" data-aos="fade-right">
+              <div class="d-flex flex-column flex-lg-row px-0 justify-content-between">
+                <div class="location d-flex align-items-center pe-2 py-3">
+                  <i class="fa-solid fa-location-dot text-white fa-2x border-bottom pb-2"></i>
+                  <div class="ps-3">
+                    <p class="mb-0">
+                      45 Avenue Mohammed V, Casablanca <br>
+                      Quartier des Habous, Marrakech
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <div class="row my-5 py-3 ">
-                    <div class="col-lg-5">
-                      <div class="pb-5 pb-lg-0">
-                        <img width="90%" src="./assets/images/menu-slider-dinner.png" alt="">
-                      </div>
-                    </div>
-                    <div class="col-lg-7">
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Tajine d'Agneau aux Pruneaux</h5>
-                          <p>Agneau tendre mijoté avec pruneaux, amandes et épices</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            120</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Tajine de Poulet aux Olives</h5>
-                          <p>Poulet fermier aux olives vertes et citron confit</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            95</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Tajine de Bœuf aux Légumes</h5>
-                          <p>Bœuf mijoté avec légumes de saison et épices traditionnelles</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            110</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Tajine de Poisson</h5>
-                          <p>Poisson frais aux légumes et sauce chermoula</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            105</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Tajine Végétarien</h5>
-                          <p>Légumes de saison mijotés aux épices et herbes fraîches</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            75</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <div class="location d-flex align-items-center pe-2 py-3">
+                  <i class="fa-solid fa-mobile text-white fa-2x border-bottom pb-2"></i>
+                  <div class="ps-3">
+                    <p class="mb-0">
+                      <a style="text-decoration: none;color:white" href="tel:+212 620202020">+212 620202020</a> <br>
+                      <a style="text-decoration: none;color:white" href="tel:+212 620202020">+212 620202020</a>
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <div class="row my-5 py-3 ">
-                    <div class="col-lg-5">
-                      <div class="pb-5 pb-lg-0">
-                        <img width="90%" src="./assets/images/menu-slider-dessert.png" alt="">
-                      </div>
-                    </div>
-                    <div class="col-lg-7">
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Couscous Royal</h5>
-                          <p>Couscous traditionnel avec agneau, poulet, merguez et légumes</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            150</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Couscous aux Sept Légumes</h5>
-                          <p>Couscous végétarien avec sept légumes de saison</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            85</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Couscous au Poisson</h5>
-                          <p>Couscous avec poisson frais et légumes méditerranéens</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            125</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Couscous Tfaya</h5>
-                          <p>Couscous sucré-salé aux oignons caramélisés et raisins secs</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            95</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Couscous aux Amandes</h5>
-                          <p>Couscous traditionnel garni d'amandes grillées et cannelle</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            90</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <div class="location d-flex align-items-center pe-2 py-3">
+                  <i class="fa-solid fa-envelope text-white fa-2x border-bottom pb-2"></i>
+                  <div class="ps-3">
+                    <p class="mb-0">
+                      contact@oumkeltoum.ma <br>
+                      reservation@oumkeltoum.ma
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <div class="row my-5 py-3 ">
-                    <div class="col-lg-5">
-                      <div class="pb-5 pb-lg-0">
-                        <img width="90%" src="./assets/images/menu-slider-lunch.png" alt="">
-                      </div>
-                    </div>
-                    <div class="col-lg-7">
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Chebakia</h5>
-                          <p>Pâtisserie traditionnelle au miel et graines de sésame</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            25</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Makroudh</h5>
-                          <p>Gâteau de semoule fourré aux dattes et parfumé à l'eau de fleur d'oranger</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            30</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Cornes de Gazelle</h5>
-                          <p>Délicieuses pâtisseries en forme de croissant aux amandes</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            35</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Baklava Marocain</h5>
-                          <p>Feuilleté aux amandes et miel, spécialité de la maison</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            40</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Mouhallabia</h5>
-                          <p>Crème dessert à la fleur d'oranger et pistaches</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            28</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <div class="reservation-box" data-aos="fade-down-left">
+              <div class="reservation-wrapper">
+                <h2>Horaires d'Ouverture</h2>
+                <div class="reservation-date-time">
+                  <p>Lundi: ............................ 12:00 - 02:00</p>
+                  <p>Mardi: ............................ 12:00 - 02:00</p>
+                  <p>Mercredi: ........................ 12:00 - 02:00</p>
+                  <p>Jeudi: ............................. 12:00 - 02:00</p>
+                  <p>Vendredi: ........................ 12:00 - 02:00</p>
+                  <p>Samedi: .......................... 12:00 - 02:00</p>
+                  <p>Dimanche: ....................... 12:00 - 02:00</p>
                 </div>
-                <div>
-                  <div class="row my-5 py-3 ">
-                    <div class="col-lg-5">
-                      <div class="pb-5 pb-lg-0">
-                        <img width="90%" src="./assets/images/menu-slider-lunch.png" alt="">
-                      </div>
-                    </div>
-                    <div class="col-lg-7">
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Thé à la Menthe</h5>
-                          <p>Thé vert traditionnel à la menthe fraîche</p>
-                        </div>
-                        <div class="item-right">
-                          <span class="item-price">
-                          <span class="price-symbol">MAD</span>
-                            15</span>
-                          <div class="item-btn">
-                            <a href="#">Commander</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-wrapper d-flex justify-content-between">
-                        <div class="item-left">
-                          <h5>Café Marocain</h5>
-                          <p>Café traditionnel aux épices et cardamome</p>
-                        </div>
-                        <div class
+                <h2 class="pb-2">Réservations</h2>
+                <h3><a style="color:white" href="tel:+212 620202020">+212 620202020</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <p class="text-center pt-4 mt-3 pt-lg-0">&copy; <span id="copyrightCurrentYear"></span> <b> OUM KELTOUM.</b> All rights reserved. Design by <a href="" class="fw-bold author-name">Anass benfares</a></p>
+        </div>
+      </div>
+    </footer>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer src="./assets/js/script.js"></script>
+  </body>
+</html>

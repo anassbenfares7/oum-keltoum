@@ -13,154 +13,251 @@ document.addEventListener("DOMContentLoaded", function() {
 var getHamburgerIcon = document.getElementById("hamburger");
 var getHamburgerCrossIcon = document.getElementById("hamburger-cross");
 var getMobileMenu = document.getElementById("mobile-menu");
-
-// Open the mobile menu
-getHamburgerIcon.addEventListener("click", function () {
-    getMobileMenu.style.transform = "translateX(0%)";
-});
-
-// Close the mobile menu
+// Open / Close mobile menu (guarded)
 function closeMenu() {
-    getMobileMenu.style.transform = "translateX(-100%)";
+    if (getMobileMenu) getMobileMenu.style.transform = "translateX(-100%)";
 }
 
-// Close the mobile menu when the close icon is clicked
-getHamburgerCrossIcon.addEventListener("click", closeMenu);
+if (getHamburgerIcon && getMobileMenu) {
+  getHamburgerIcon.addEventListener("click", function () {
+    getMobileMenu.style.transform = "translateX(0%)";
+  });
+}
 
-// Close the mobile menu if clicking outside of it
+if (getHamburgerCrossIcon) {
+  getHamburgerCrossIcon.addEventListener("click", closeMenu);
+}
+
+// Close the mobile menu if clicking outside of it (guarded)
 document.addEventListener("click", function(event) {
-    var isClickInsideMenu = getMobileMenu.contains(event.target);
-    var isClickOnIcon = getHamburgerIcon.contains(event.target);
+    var isClickInsideMenu = getMobileMenu && getMobileMenu.contains(event.target);
+    var isClickOnIcon = getHamburgerIcon && getHamburgerIcon.contains(event.target);
 
     if (!isClickInsideMenu && !isClickOnIcon) {
         closeMenu();
     }
 });
 
-// Search bar functionality
-const searchBtn = document.getElementById("searchBtn");
-const searchBtnMobile = document.getElementById("searchBtnMobile");
-const closeBtn = document.getElementById("search-close-btn");
-const searchCon = document.getElementById("search-container");
-
-// Show search container when search button is clicked
-searchBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  searchCon.classList.remove("d-none");
-  requestAnimationFrame(() => {
-    searchCon.classList.add("show");
-  });
-});
-
-// Show search container when mobile search button is clicked
-searchBtnMobile.addEventListener("click", (event) => {
-  event.preventDefault();
-  searchCon.classList.remove("d-none");
-  requestAnimationFrame(() => {
-    searchCon.classList.add("show");
-  });
-});
-
-// Hide search container when close button is clicked
-closeBtn.addEventListener("click", () => {
-  searchCon.classList.remove("show");
-  setTimeout(() => {
-    searchCon.classList.add("d-none");
-  }, 500); // Delay hiding the search container to allow animation to complete
-});
-
 
 // Header scroll behavior
 document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Header Scroll Effect (Your existing code) ---
   const header = document.querySelector('header');
   const headerClass = document.querySelector('.header');
 
-  const checkScroll = () => {
-    if (window.scrollY > 10) {
-      header.classList.add('scrolled');
-      headerClass.classList.remove('my-3');
-      headerClass.classList.add('my-2');
-      sessionStorage.setItem('scrolled', 'true');
-      
-    } else {
-      header.classList.remove('scrolled');
-      headerClass.classList.add('my-3');
-      headerClass.classList.remove('my-2');
-      sessionStorage.removeItem('scrolled');
-    }
-  };
+  // A check to make sure the header elements exist before running the code
+  if (header && headerClass) {
+    const checkScroll = () => {
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+        headerClass.classList.remove('my-3');
+        headerClass.classList.add('my-2');
+        sessionStorage.setItem('scrolled', 'true');
+        
+      } else {
+        header.classList.remove('scrolled');
+        headerClass.classList.add('my-3');
+        headerClass.classList.remove('my-2');
+        sessionStorage.removeItem('scrolled');
+      }
+    };
 
-  // Check scroll position on page load
-  if (sessionStorage.getItem('scrolled') === 'true') {
-    header.classList.add('scrolled');
+    // Check scroll position on page load
+    if (sessionStorage.getItem('scrolled') === 'true') {
+      header.classList.add('scrolled');
+    }
+    window.addEventListener('scroll', checkScroll);  
+    checkScroll(); // Initial check
   }
-  window.addEventListener('scroll', checkScroll);  
-  checkScroll(); // Initial check
+
+
+  // --- Smooth Scroll Back To Top (New code added here) ---
+  const backToTopButton = document.getElementById('back-to-top');
+
+  // Check if the button actually exists on the page
+  if (backToTopButton) {
+  
+    // Add a click event listener
+    backToTopButton.addEventListener('click', function(event) {
+      
+      // Prevent the default link behavior (which adds the '#' to the URL)
+      event.preventDefault();
+      
+      // Now, smoothly scroll the window to the top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
 });
 
 // Slider initialization
 
-// Our Menu Slider
-$('#our-menus').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  speed: 300,
-  asNavFor: '.slider-indicators-wrapper',
-  draggable: false,
-  swipe: false,
-});
+// Load and render menu data
+async function loadMenuData() {
+  try {
+    const response = await fetch('./assets/js/menu.json');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error loading menu data:', error);
+    return null;
+  }
+}
 
-// Navigation Slider for Our Menu
-$('.slider-indicators-wrapper').slick({
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  asNavFor: '#our-menus',
-  dots: false,
-  arrows: true,
-  focusOnSelect: true,
-  draggable: false,
-  swipe: false,
-  prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
-  nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
-  responsive: [
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 5,
-      }
-    },
-    {
-      breakpoint: 990,
-      settings: {
-        slidesToShow: 1,
-        arrows: true,
-      }
-    }
-  ]
-});
+// Render category indicators
+function renderCategoryIndicators(categories) {
+  const indicatorsWrapper = document.querySelector('.slider-indicators-wrapper');
+  const indicators = categories.map((category, index) => `
+    <div class="slider-indicators">
+      <div class="indicators-icon ${index === 0 ? 'active' : ''} text-center">
+        <i class="${category.icon} fa-2x"></i>
+      </div>
+      <div class="indicators-title text-center fs-6 mt-2 flex-wrap">
+        <h5>${category.name}</h5>
+      </div>
+    </div>
+  `).join('');
+  indicatorsWrapper.innerHTML = indicators;
+}
 
-// Custom animation for Our Menu slider
-$('#our-menus').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-  var $nextSlide = $(slick.$slides[nextSlide]);
-  var $currentSlide = $(slick.$slides[currentSlide]);
+// Render menu items
+function renderMenuItems(categories) {
+  const menuContainer = document.getElementById('our-menus');
+  const menuItems = categories.map((category, i) => `
+    <div>
+      <div class="row py-3">
+        <h3 class="menu-category-title">${category.name}</h3>
+              <div class="col-lg-5">
+                <div class="pb-5 pb-lg-0">
+                  ${category.items && category.items[0] ? `
+                    <img class="img-fluid" loading="lazy" src="./assets/${category.items[0].imageURL}" alt="${category.items[0].name}">
+                  ` : `
+                    <div class="menu-image-placeholder">
+                      <i class="fas fa-image"></i>
+                    </div>
+                  `}
+                </div>
+              </div>
+        <div class="col-lg-7">
+          ${category.items.map(item => `
+            <div class="item-wrapper d-flex justify-content-between">
+              <div class="item-left">
+                <h5>${item.name}</h5>
+                <p>${item.description}</p>
+              </div>
+              <div class="item-right">
+                <span class="item-price">
+                  ${item.price}
+                  ${item.imageURL ? `<a class="voir-photo-link" data-image="./assets/${item.imageURL}">Voir photo</a>` : ''}
+                </span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+  menuContainer.innerHTML = menuItems;
+}
 
-  // Set initial state for the next slide
-  $nextSlide.css({
-    'transform': 'translateY(10%)',
-    'opacity': 0,
+// Initialize menu sliders
+function initializeSliders() {
+  $('#our-menus').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    adaptiveHeight: true, // <-- ADD THIS LINE
+    speed: 300,
+    asNavFor: '.slider-indicators-wrapper',
+    draggable: false,
+    swipe: false,
   });
 
-  // Animate the next slide into view after a short delay
-  setTimeout(function() {
-    $nextSlide.css({
-      'transform': 'translateY(0)',
-      'opacity': 1,
-      'transition': 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out'
-    });
-  }, 50); 
-});
+  $('.slider-indicators-wrapper').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    asNavFor: '#our-menus',
+    dots: false,
+    arrows: true,
+    focusOnSelect: true,
+    draggable: false,
+    swipe: false,
+    prevArrow: '<button class="slide-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>',
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 5,
+        }
+      },
+      {
+        breakpoint: 990,
+        settings: {
+          slidesToShow: 1,
+          arrows: true,
+        }
+      }
+    ]
+  });
+}
+
+
+// Initialize menu system
+async function initializeMenu() {
+  // First, check if the main menu container exists on the current page.
+  const menuContainer = document.getElementById('our-menus');
+
+  // If the container is NOT found, stop the function immediately.
+  if (!menuContainer) {
+    return;
+  }
+
+  // If the container IS found, proceed with building the menu.
+  const menuData = await loadMenuData();
+  if (menuData) {
+    renderCategoryIndicators(menuData.categories);
+    renderMenuItems(menuData.categories);
+    initializeSliders();
+    // Note: do not call addMoroccanDecorations() automatically to avoid
+    // inline style changes that can break the original design.
+  }
+}
+
+// Add Moroccan decorative elements
+// addMoroccanDecorations is intentionally left out of the automatic init
+// to avoid unexpected inline style changes. The function can be
+// re-enabled later if a visual QA pass approves it.
+
+
+// Initialize menu when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeMenu);
+
+// // Custom animation for Our Menu slider
+// $('#our-menus').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+//   var $nextSlide = $(slick.$slides[nextSlide]);
+//   var $currentSlide = $(slick.$slides[currentSlide]);
+
+//   // Set initial state for the next slide
+//   $nextSlide.css({
+//     'transform': 'translateY(10%)',
+//     'opacity': 0,
+//   });
+
+//   // Animate the next slide into view after a short delay
+//   setTimeout(function() {
+//     $nextSlide.css({
+//       'transform': 'translateY(0)',
+//       'opacity': 1,
+//       'transition': 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out'
+//     });
+//   }, 50); 
+// });
 
 // Testimonials Slider
 $('.testimonials .slider-content').slick({
@@ -316,27 +413,105 @@ $('.chef-choise-icons .fa-chevron-down').on('click', function() {
 // Update copyright year
 document.getElementById('copyrightCurrentYear').textContent = new Date().getFullYear();
 
+// Lightbox functionality
+function initializeLightbox() {
+  const lightbox = document.querySelector('.menu-lightbox');
+  const lightboxContent = lightbox.querySelector('.menu-lightbox-content');
+  const lightboxImage = lightbox.querySelector('.menu-lightbox-image');
+  const lightboxPlaceholder = lightbox.querySelector('.menu-lightbox-placeholder');
+  const lightboxTitle = lightbox.querySelector('.menu-lightbox-title');
+  const closeButton = lightbox.querySelector('.menu-lightbox-close');
 
-var shoppingbtn = document.getElementById('shoppingbutton');
-var shoppingbtnMobile = document.getElementById('shoppingbuttonMobile');
-var shoppingCart = document.querySelector('.shopping-cart');
-var cartClose = document.querySelectorAll('.shopping-cart-header > i');
+  // Précharger les images
+  function preloadImage(url) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(url);
+      img.onerror = () => reject(new Error('Image not found'));
+      img.src = url;
+    });
+  }
 
-shoppingbtn.addEventListener('click', function(event) {
-  event.preventDefault();
-  console.log('chl');
-  shoppingCart.style.right = "0";
-});
+  // Function to open lightbox
+  async function openLightbox(imageUrl, title) {
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lightboxTitle.textContent = title;
 
-shoppingbtnMobile.addEventListener('click', function(event) {
-  event.preventDefault();
-  console.log('chl');
-  shoppingCart.style.right = "0";
-});
+    // Afficher un état de chargement
+    lightboxImage.style.display = 'none';
+    lightboxPlaceholder.style.display = 'flex';
+    lightboxPlaceholder.innerHTML = '<i class="fas fa-spinner fa-spin"></i><p>Chargement...</p>';
 
-cartClose.forEach(function(closeBtn) {
-  closeBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-    shoppingCart.style.right = "-100vw";
+    try {
+      // Tenter de charger l'image
+      await preloadImage(imageUrl);
+      lightboxImage.src = imageUrl;
+      lightboxImage.style.display = 'block';
+      lightboxPlaceholder.style.display = 'none';
+    } catch (error) {
+      // En cas d'erreur, afficher le placeholder
+      lightboxImage.style.display = 'none';
+      lightboxPlaceholder.style.display = 'flex';
+      lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
+    }
+  }
+
+  // Function to close lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      lightboxImage.src = '';
+      lightboxTitle.textContent = '';
+    }, 200);
+  }
+
+  // Cache pour les états des images
+  const imageCache = new Map();
+
+  // Event delegation for "Voir photo" links with debouncing
+  let lastClickTime = 0;
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('voir-photo-link')) {
+      e.preventDefault();
+      
+      // Debouncing pour éviter les clics multiples
+      const now = Date.now();
+      if (now - lastClickTime < 500) return;
+      lastClickTime = now;
+
+      const imageUrl = e.target.dataset.image;
+      const title = e.target.closest('.item-wrapper').querySelector('h5').textContent;
+      
+      if (imageUrl) {
+        openLightbox(imageUrl, title);
+      }
+    }
   });
+
+  // Close lightbox when clicking close button
+  closeButton.addEventListener('click', closeLightbox);
+
+  // Close lightbox when clicking outside the content
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+}
+
+// Initialize lightbox when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  const menuContainer = document.getElementById('our-menus');
+  if (menuContainer) {
+    initializeLightbox();
+  }
 });
