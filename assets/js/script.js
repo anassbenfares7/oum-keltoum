@@ -2,6 +2,48 @@ AOS.init({
   offset: '140', // 50% viewport height ka offset
 });
 
+// Include components functionality
+document.addEventListener("DOMContentLoaded", function() {
+  // Load all components with data-include attribute
+  const includes = document.querySelectorAll('[data-include]');
+  includes.forEach(include => {
+    const file = include.getAttribute('data-include');
+    fetch(file)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(content => {
+        include.innerHTML = content;
+        // Reinitialize any scripts that might be needed for the included content
+        if (file.includes('nav-desktop') || file.includes('nav-mobile')) {
+          // Reinitialize header functionality
+          const hamburgerIcon = document.getElementById("hamburger");
+          const hamburgerCrossIcon = document.getElementById("hamburger-cross");
+          const mobileMenu = document.getElementById("mobile-menu");
+
+          if (hamburgerIcon && mobileMenu) {
+            hamburgerIcon.addEventListener("click", function () {
+              mobileMenu.style.transform = "translateX(0%)";
+            });
+          }
+
+          if (hamburgerCrossIcon) {
+            hamburgerCrossIcon.addEventListener("click", function() {
+              if (mobileMenu) mobileMenu.style.transform = "translateX(-100%)";
+            });
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error loading component:', file, error);
+        include.innerHTML = `<div class="alert alert-warning">Component not found: ${file}</div>`;
+      });
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function() {
   try {
     const loader = document.querySelector('.loader');
@@ -46,37 +88,60 @@ document.addEventListener("click", function(event) {
 });
 
 
-// Header scroll behavior
-document.addEventListener('DOMContentLoaded', () => {
+// Header scroll behavior - Direct approach
+console.log('SCRIPT LOADED');
 
-  // --- Header Scroll Effect (Your existing code) ---
+window.addEventListener('load', function() {
+  console.log('PAGE LOADED');
   const header = document.querySelector('header');
-  const headerClass = document.querySelector('.header');
+  console.log('Header found:', header);
 
-  // A check to make sure the header elements exist before running the code
-  if (header && headerClass) {
-    const checkScroll = () => {
-      if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-        headerClass.classList.remove('my-3');
-        headerClass.classList.add('my-2');
-        sessionStorage.setItem('scrolled', 'true');
-        
-      } else {
-        header.classList.remove('scrolled');
-        headerClass.classList.add('my-3');
-        headerClass.classList.remove('my-2');
-        sessionStorage.removeItem('scrolled');
-      }
-    };
+  if (header) {
+    // Set header styles
+    header.style.position = 'fixed';
+    header.style.top = '0';
+    header.style.left = '0';
+    header.style.width = '100%';
+    header.style.zIndex = '9999';
+    header.style.transition = 'all 0.3s ease-in-out';
+    header.style.backgroundColor = 'rgba(0,0,0,0.8)';
 
-    // Check scroll position on page load
-    if (sessionStorage.getItem('scrolled') === 'true') {
-      header.classList.add('scrolled');
-    }
-    window.addEventListener('scroll', checkScroll);  
-    checkScroll(); // Initial check
+    console.log('Header styles applied');
   }
+
+  let lastScrollPosition = window.pageYOffset;
+  let isHeaderHidden = false;
+
+  // Simple scroll function
+  window.addEventListener('scroll', function() {
+    const currentScrollPosition = window.pageYOffset;
+
+    console.log('Scrolling:', currentScrollPosition, 'Last:', lastScrollPosition);
+
+    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
+      // Scrolling down - hide header
+      if (!isHeaderHidden) {
+        header.style.transform = 'translateY(-100px)';
+        isHeaderHidden = true;
+        console.log('HEADER HIDDEN');
+      }
+    } else if (currentScrollPosition < lastScrollPosition) {
+      // Scrolling up - show header
+      if (isHeaderHidden) {
+        header.style.transform = 'translateY(0)';
+        isHeaderHidden = false;
+        console.log('HEADER SHOWN');
+      }
+    }
+
+    lastScrollPosition = currentScrollPosition;
+  });
+});
+
+// Also try DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM CONTENT LOADED');
+});
 
 
   // --- Smooth Scroll Back To Top (New code added here) ---
