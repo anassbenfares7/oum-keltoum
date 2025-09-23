@@ -205,8 +205,8 @@ function renderMenuItems(categories) {
         <h3 class="menu-category-title">${category.name}</h3>
               <div class="col-lg-5">
                 <div class="pb-5 pb-lg-0">
-                  ${category.items && category.items[0] ? `
-                    <img class="img-fluid" loading="lazy" src="./assets/${category.items[0].imageURL}" alt="${category.items[0].name}">
+                  ${category.items && category.items[0] && category.items[0].imageURL ? `
+                    <img class="img-fluid" loading="lazy" src="./assets/${category.items[0].imageURL}" alt="${category.items[0].name}" onerror="this.onerror=null; this.src='./assets/images/banner-img.png';">
                   ` : `
                     <div class="menu-image-placeholder">
                       <i class="fas fa-image"></i>
@@ -224,7 +224,7 @@ function renderMenuItems(categories) {
               <div class="item-right">
                 <span class="item-price">
                   ${item.price}
-                  ${item.imageURL ? `<a class="voir-photo-link" data-image="./assets/${item.imageURL}">Voir photo</a>` : ''}
+                  <a class="voir-photo-link" data-image="${item.imageURL ? `./assets/${item.imageURL}` : 'not-available'}" data-name="${item.name}">Voir photo</a>
                 </span>
               </div>
             </div>
@@ -543,6 +543,14 @@ function initializeLightbox() {
     lightboxPlaceholder.style.display = 'flex';
     lightboxPlaceholder.innerHTML = '<i class="fas fa-spinner fa-spin"></i><p>Chargement...</p>';
 
+    // Check if image is marked as not available
+    if (imageUrl === 'not-available') {
+      lightboxImage.style.display = 'none';
+      lightboxPlaceholder.style.display = 'flex';
+      lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
+      return;
+    }
+
     try {
       // Tenter de charger l'image
       await preloadImage(imageUrl);
@@ -582,8 +590,8 @@ function initializeLightbox() {
       lastClickTime = now;
 
       const imageUrl = e.target.dataset.image;
-      const title = e.target.closest('.item-wrapper').querySelector('h5').textContent;
-      
+      const title = e.target.dataset.name || e.target.closest('.item-wrapper').querySelector('h5').textContent;
+
       if (imageUrl) {
         openLightbox(imageUrl, title);
       }
