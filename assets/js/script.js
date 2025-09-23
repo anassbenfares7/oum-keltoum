@@ -2,23 +2,6 @@ AOS.init({
   offset: '140', // 50% viewport height ka offset
 });
 
-// Hide header on page load
-window.addEventListener('load', function() {
-  const header = document.querySelector('header');
-  if (header) {
-    // Initially hide header
-    header.style.transform = 'translateY(-100px)';
-    header.style.opacity = '0';
-
-    // Show header after a short delay
-    setTimeout(() => {
-      header.style.transition = 'all 0.5s ease-in-out';
-      header.style.transform = 'translateY(0)';
-      header.style.opacity = '1';
-    }, 500);
-  }
-});
-
 // Include components functionality
 document.addEventListener("DOMContentLoaded", function() {
   // Load all components with data-include attribute
