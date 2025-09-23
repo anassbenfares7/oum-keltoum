@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hors ligne - OUM KELTOUM</title>
+  <style>
+    /* Auto-hide Header Styles */
+    .header-auto-hide {
+      transition: transform 0.3s ease-in-out !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+      background: transparent !important;
+    }
+
+    .header-hidden {
+      transform: translateY(-100%) !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #28a745 !important;
+    }
+
+    .mobile-nav-link {
+      transition: color 0.3s ease !important;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: #28a745 !important;
+    }
+    body {
+      font-family: 'Heebo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #2c1810 0%, #8b4513 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .offline-container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .offline-icon {
+      font-size: 4rem;
+      color: #d4af37;
+      margin-bottom: 1rem;
+    }
+
+    .offline-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #d4af37;
+    }
+
+    .offline-message {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .offline-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .retry-btn {
+      background: #d4af37;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .retry-btn:hover {
+      background: #b8941f;
+      transform: translateY(-2px);
+    }
+
+    .home-link {
+      color: #d4af37;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .home-link:hover {
+      opacity: 1;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: #d4af37;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .cached-info {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      .offline-container {
+        padding: 1rem;
+      }
+
+      .offline-title {
+        font-size: 1.5rem;
+      }
+
+      .offline-message {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Navigation -->
+  <header class="bg-transparent header-auto-hide">
+    <!-- Desktop Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-3 d-none d-lg-block">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html" aria-label="OUM KELTOUM - Accueil">
+          <i class="fa fa-utensils me-3 text-white" aria-hidden="true"></i>
+          <h1 class="mb-0 text-white">OUM KELTOUM</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html" data-page="accueil">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./about.html" data-page="about">À Propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./reservation.html" data-page="reservation">Réservation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./menu.html" data-page="menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./contact.html" data-page="contact">Contact</a>
+            </li>
+          </ul>
+          <div class="ms-3">
+            <a class="text-white text-decoration-none me-3" id="searchBtn" href="#" aria-label="Rechercher">
+              <i class="fa fa-search"></i>
+            </a>
+            <a class="text-white text-decoration-none" id="shoppingbutton" href="#" aria-label="Panier">
+              <i class="fa fa-shopping-cart"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="d-flex justify-content-around py-3 align-items-center d-lg-none mobile-nav-header">
+      <div id="hamburger" class="mobile-menu-trigger" role="button" tabindex="0" aria-label="Toggle mobile menu" aria-expanded="false">
+        <i class="fa fa-2x fa-bars me-3 text-white" aria-hidden="true"></i>
+      </div>
+      <div class="mobile-nav-logo">
+        <div class="logo">
+          <a href="./index.html" aria-label="OUM KELTOUM - Accueil">
+            <i class="fa fa-utensils me-3 text-white" aria-hidden="true"></i>
+            <h1 class="mb-0 text-white">OUM KELTOUM</h1>
+          </a>
+        </div>
+      </div>
+      <div class="mobile-nav-icons">
+        <div class="icons">
+          <a class="text-decoration-none text-white" id="searchBtnMobile" href="#" aria-label="Rechercher">
+            <i class="fa fa-search"></i>
+          </a>
+          <a class="text-decoration-none text-white" id="shoppingbuttonMobile" href="#" aria-label="Panier">
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="position-fixed w-75 bg-white h-100 top-0 start-0 mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+      <div id="hamburger-cross" class="d-flex justify-content-end align-items-center py-2 mobile-menu-close" role="button" tabindex="0" aria-label="Fermer le menu">
+        <i class="fa fa-2x fa-times me-3" aria-hidden="true"></i>
+      </div>
+      <nav class="mobile-nav-content" aria-label="Menu de navigation mobile">
+        <ul class="d-flex flex-column ps-2 mb-0 mt-4 mobile-nav-list">
+          <li class="list-unstyled py-3 mobile-nav-item">
+            <a class="text-dark text-decoration-none text-uppercase p-4 mobile-nav-link" href="./index.html" data-page="accueil">
+              <i class="fa fa-home me-2" aria-hidden="true"></i>Accueil
+            </a>
+          </li>
+          <li class="list-unstyled py-3 mobile-nav-item">
+            <a class="text-dark text-decoration-none text-uppercase p-4 mobile-nav-link" href="./about.html" data-page="about">
+              <i class="fa fa-info-circle me-2" aria-hidden="true"></i>À Propos
+            </a>
+          </li>
+          <li class="list-unstyled py-3 mobile-nav-item">
+            <a class="text-dark text-decoration-none text-uppercase p-4 mobile-nav-link" href="./reservation.html" data-page="reservation">
+              <i class="fa fa-calendar me-2" aria-hidden="true"></i>Réservation
+            </a>
+          </li>
+          <li class="list-unstyled py-3 mobile-nav-item">
+            <a class="text-dark text-decoration-none text-uppercase p-4 mobile-nav-link" href="./menu.html" data-page="menu">
+              <i class="fa fa-cutlery me-2" aria-hidden="true"></i>Menu
+            </a>
+          </li>
+          <li class="list-unstyled py-3 mobile-nav-item">
+            <a class="text-dark text-decoration-none text-uppercase p-4 mobile-nav-link" href="./contact.html" data-page="contact">
+              <i class="fa fa-phone me-2" aria-hidden="true"></i>Contact
+            </a>
+          </li>
+        </ul>
+
+        <!-- Quick actions for mobile -->
+        <div class="mobile-quick-actions px-4 mt-5">
+          <div class="d-grid gap-3">
+            <a href="./reservation.html" class="btn btn-primary btn-lg mobile-action-btn">
+              <i class="fa fa-calendar me-2"></i>Réserver une table
+            </a>
+            <a href="tel:+212522000000" class="btn btn-outline-primary btn-lg mobile-action-btn">
+              <i class="fa fa-phone me-2"></i>Appeler maintenant
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="offline-container">
+  <div class="offline-container">
+    <div class="offline-icon">
+      <i class="fas fa-wifi"></i>
+    </div>
+    <h1 class="offline-title">Vous êtes hors ligne</h1>
+    <p class="offline-message">
+      Veuillez vérifier votre connexion Internet et réessayer.
+      Certaines fonctionnalités du site peuvent ne pas être disponibles hors ligne.
+    </p>
+
+    <div class="offline-actions">
+      <button class="retry-btn" onclick="retryConnection()">
+        <span id="retry-text">Réessayer</span>
+        <span id="loading-spinner" class="loading" style="display: none;"></span>
+      </button>
+
+      <div class="cached-info">
+        <i class="fas fa-info-circle"></i>
+        Les informations de base du restaurant sont disponibles hors ligne.
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="footer-about">
+            <h3 class="text-white mb-3">OUM KELTOUM</h3>
+            <p class="text-white-50">Un restaurant de qualité proposant une cuisine marocaine authentique dans une atmosphère chaleureuse et conviviale.</p>
+            <div class="footer-social">
+              <a href="#" class="text-white me-3" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-white me-3" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-white me-3" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="text-white" aria-label="TripAdvisor">
+                <i class="fab fa-tripadvisor"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="footer-links">
+            <h4 class="text-white mb-3">Liens Rapides</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="./index.html" class="text-white-50 text-decoration-none">Accueil</a>
+              </li>
+              <li class="mb-2">
+                <a href="./about.html" class="text-white-50 text-decoration-none">À Propos</a>
+              </li>
+              <li class="mb-2">
+                <a href="./menu.html" class="text-white-50 text-decoration-none">Menu</a>
+              </li>
+              <li class="mb-2">
+                <a href="./reservation.html" class="text-white-50 text-decoration-none">Réservation</a>
+              </li>
+              <li class="mb-2">
+                <a href="./contact.html" class="text-white-50 text-decoration-none">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="footer-contact">
+            <h4 class="text-white mb-3">Contactez-nous</h4>
+            <p class="text-white-50 mb-2">
+              <i class="fas fa-map-marker-alt me-2"></i>
+              Espace Restaurant Kaltoum, Casablanca
+            </p>
+            <p class="text-white-50 mb-2">
+              <i class="fas fa-phone me-2"></i>
+              <a href="tel:+212522000000" class="text-white-50 text-decoration-none">+212 5220 00000</a>
+            </p>
+            <p class="text-white-50">
+              <i class="fas fa-envelope me-2"></i>
+              <a href="mailto:contact@oumkeltoum.ma" class="text-white-50 text-decoration-none">contact@oumkeltoum.ma</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="footer-bottom border-top border-secondary pt-3 text-center">
+            <p class="text-white-50 mb-0">&copy; 2024 OUM KELTOUM. Tous droits réservés.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function retryConnection() {
+      const retryText = document.getElementById('retry-text');
+      const loadingSpinner = document.getElementById('loading-spinner');
+      const retryBtn = document.querySelector('.retry-btn');
+
+      // Show loading state
+      retryText.style.display = 'none';
+      loadingSpinner.style.display = 'inline-block';
+      retryBtn.disabled = true;
+
+      // Try to fetch the main page
+      fetch('/', {
+        method: 'HEAD',
+        cache: 'no-cache'
+      })
+      .then(response => {
+        if (response.ok) {
+          // Connection restored, redirect to main page
+          window.location.href = '/';
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .catch(error => {
+        // Still offline
+        retryText.style.display = 'inline';
+        loadingSpinner.style.display = 'none';
+        retryBtn.disabled = false;
+
+        // Add shake animation to indicate failure
+        retryBtn.style.animation = 'shake 0.5s';
+        setTimeout(() => {
+          retryBtn.style.animation = '';
+        }, 500);
+      });
+    }
+
+    // Add shake animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Auto-retry every 30 seconds
+    setInterval(() => {
+      if (navigator.onLine) {
+        retryConnection();
+      }
+    }, 30000);
+
+    // Listen for online events
+    window.addEventListener('online', () => {
+      retryConnection();
+    });
+
+    // Update UI when connection status changes
+    function updateConnectionStatus() {
+      const offlineMessage = document.querySelector('.offline-message');
+      if (navigator.onLine) {
+        offlineMessage.innerHTML = 'Connexion rétablie! Redirection...';
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 1000);
+      }
+    }
+
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', updateConnectionStatus);
+  </script>
+
+  <!-- Auto-hide Header Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Initializing auto-hide header for offline.html');
+
+      const header = document.querySelector('header');
+      let lastScrollTop = 0;
+      const scrollThreshold = 100;
+
+      // Add auto-hide functionality
+      window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+          // Scroll down - hide header
+          header.classList.add('header-hidden');
+          console.log('Hiding header - scroll down');
+        } else if (scrollTop < lastScrollTop || scrollTop <= scrollThreshold) {
+          // Scroll up - show header
+          header.classList.remove('header-hidden');
+          console.log('Showing header - scroll up');
+        }
+
+        lastScrollTop = scrollTop;
+      }, { passive: true });
+
+      console.log('Auto-hide header initialized for offline.html');
+    });
+  </script>
+</body>
+</html>

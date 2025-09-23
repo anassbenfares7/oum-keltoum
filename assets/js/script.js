@@ -2,6 +2,23 @@ AOS.init({
   offset: '140', // 50% viewport height ka offset
 });
 
+// Hide header on page load
+window.addEventListener('load', function() {
+  const header = document.querySelector('header');
+  if (header) {
+    // Initially hide header
+    header.style.transform = 'translateY(-100px)';
+    header.style.opacity = '0';
+
+    // Show header after a short delay
+    setTimeout(() => {
+      header.style.transition = 'all 0.5s ease-in-out';
+      header.style.transform = 'translateY(0)';
+      header.style.opacity = '1';
+    }, 500);
+  }
+});
+
 // Include components functionality
 document.addEventListener("DOMContentLoaded", function() {
   // Load all components with data-include attribute
@@ -88,25 +105,21 @@ document.addEventListener("click", function(event) {
 });
 
 
-// Header scroll behavior - Direct approach
-console.log('SCRIPT LOADED');
-
+// Header scroll behavior - Optimized approach
 window.addEventListener('load', function() {
-  console.log('PAGE LOADED');
   const header = document.querySelector('header');
-  console.log('Header found:', header);
 
   if (header) {
     // Set header styles
-    header.style.position = 'fixed';
-    header.style.top = '0';
-    header.style.left = '0';
-    header.style.width = '100%';
-    header.style.zIndex = '9999';
-    header.style.transition = 'all 0.3s ease-in-out';
-    header.style.backgroundColor = 'rgba(0,0,0,0.8)';
-
-    console.log('Header styles applied');
+    Object.assign(header.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100%',
+      zIndex: '9999',
+      transition: 'all 0.3s ease-in-out',
+      backgroundColor: 'rgba(0,0,0,0.8)'
+    });
   }
 
   let lastScrollPosition = window.pageYOffset;
@@ -116,21 +129,17 @@ window.addEventListener('load', function() {
   window.addEventListener('scroll', function() {
     const currentScrollPosition = window.pageYOffset;
 
-    console.log('Scrolling:', currentScrollPosition, 'Last:', lastScrollPosition);
-
     if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
       // Scrolling down - hide header
       if (!isHeaderHidden) {
         header.style.transform = 'translateY(-100px)';
         isHeaderHidden = true;
-        console.log('HEADER HIDDEN');
       }
     } else if (currentScrollPosition < lastScrollPosition) {
       // Scrolling up - show header
       if (isHeaderHidden) {
         header.style.transform = 'translateY(0)';
         isHeaderHidden = false;
-        console.log('HEADER SHOWN');
       }
     }
 
@@ -140,7 +149,7 @@ window.addEventListener('load', function() {
 
 // Also try DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM CONTENT LOADED');
+  // DOM loaded - initialize components
 });
 
 
@@ -513,7 +522,7 @@ try {
   console.error('Error updating copyright year:', error);
 }
 
-// Lightbox functionality
+// Lightbox functionality with advanced animations
 function initializeLightbox() {
   const lightbox = document.querySelector('.menu-lightbox');
   const lightboxContent = lightbox.querySelector('.menu-lightbox-content');
@@ -522,7 +531,7 @@ function initializeLightbox() {
   const lightboxTitle = lightbox.querySelector('.menu-lightbox-title');
   const closeButton = lightbox.querySelector('.menu-lightbox-close');
 
-  // Précharger les images
+  // Enhanced image preloading with cache
   function preloadImage(url) {
     return new Promise((resolve, reject) => {
       const img = new Image();
@@ -532,83 +541,147 @@ function initializeLightbox() {
     });
   }
 
-  // Function to open lightbox
-  async function openLightbox(imageUrl, title) {
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    lightboxTitle.textContent = title;
+  // Advanced open lightbox with elastic overshoot animation
+  async function openLightbox(imageUrl, title, clickElement) {
+    // Get click position for animation origin
+    const clickRect = clickElement.getBoundingClientRect();
+    const clickX = clickRect.left + clickRect.width / 2;
+    const clickY = clickRect.top + clickRect.height / 2;
 
-    // Afficher un état de chargement
+    // Show lightbox first
+    lightbox.style.display = 'flex';
+    lightbox.classList.remove('closing');
+
+    // Set transform origin to click position for origin-based animation
+    const content = lightbox.querySelector('.menu-lightbox-content');
+    content.style.transformOrigin = `${clickX}px ${clickY}px`;
+
+    // Force reflow to apply transform origin
+    content.offsetHeight;
+
+    // Trigger animation with elastic overshoot effect
+    requestAnimationFrame(() => {
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      lightboxTitle.textContent = title;
+    });
+
+    // Show loading state with modern spinner
     lightboxImage.style.display = 'none';
     lightboxPlaceholder.style.display = 'flex';
     lightboxPlaceholder.innerHTML = '<i class="fas fa-spinner fa-spin"></i><p>Chargement...</p>';
 
-    // Check if image is marked as not available
+    // Handle image not available case
     if (imageUrl === 'not-available') {
-      lightboxImage.style.display = 'none';
-      lightboxPlaceholder.style.display = 'flex';
-      lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
+      setTimeout(() => {
+        lightboxImage.style.display = 'none';
+        lightboxPlaceholder.style.display = 'flex';
+        lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
+      }, 300);
       return;
     }
 
+    // Load image with enhanced error handling and WebP support
     try {
-      // Tenter de charger l'image
+      // Convert original image path to WebP if available
+      let webpImageUrl = '';
+      if (imageUrl && imageUrl !== 'not-available') {
+        // Convert .jpg, .png, etc. to .webp and ensure proper path structure
+        if (imageUrl.startsWith('./assets/')) {
+          webpImageUrl = imageUrl.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
+        } else if (imageUrl.startsWith('images/')) {
+          webpImageUrl = './assets/' + imageUrl.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
+        } else {
+          webpImageUrl = './assets/images/webp/' + imageUrl.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
+        }
+
+        // Update the picture element source
+        const pictureElement = lightbox.querySelector('picture');
+        const sourceElement = pictureElement.querySelector('source');
+        sourceElement.srcset = webpImageUrl;
+      }
+
       await preloadImage(imageUrl);
       lightboxImage.src = imageUrl;
       lightboxImage.style.display = 'block';
       lightboxPlaceholder.style.display = 'none';
     } catch (error) {
-      // En cas d'erreur, afficher le placeholder
-      lightboxImage.style.display = 'none';
-      lightboxPlaceholder.style.display = 'flex';
-      lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
+      setTimeout(() => {
+        lightboxImage.style.display = 'none';
+        lightboxPlaceholder.style.display = 'flex';
+        lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
+      }, 300);
     }
   }
 
-  // Function to close lightbox
-  function closeLightbox() {
+  // Enhanced close lightbox with smooth return animation
+  function closeLightbox(clickElement) {
+    lightbox.classList.add('closing');
     lightbox.classList.remove('active');
-    document.body.style.overflow = '';
+
+    // Remove active state from all voir photo links
+    document.querySelectorAll('.voir-photo-link').forEach(link => {
+      link.classList.remove('lightbox-active');
+    });
+
+    // If click element provided, animate back to origin
+    if (clickElement) {
+      const clickRect = clickElement.getBoundingClientRect();
+      const clickX = clickRect.left + clickRect.width / 2;
+      const clickY = clickRect.top + clickRect.height / 2;
+
+      const content = lightbox.querySelector('.menu-lightbox-content');
+      content.style.transformOrigin = `${clickX}px ${clickY}px`;
+    }
+
+    // Clean up after animation completes
     setTimeout(() => {
+      lightbox.style.display = 'none';
+      lightbox.classList.remove('closing');
+      document.body.style.overflow = '';
       lightboxImage.src = '';
+      // Clear picture element source
+      const pictureElement = lightbox.querySelector('picture');
+      const sourceElement = pictureElement.querySelector('source');
+      sourceElement.srcset = '';
       lightboxTitle.textContent = '';
-    }, 200);
+    }, 600);
   }
 
-  // Cache pour les états des images
-  const imageCache = new Map();
-
-  // Event delegation for "Voir photo" links with debouncing
+  // Enhanced event delegation with improved interaction feedback
   let lastClickTime = 0;
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('voir-photo-link')) {
       e.preventDefault();
-      
-      // Debouncing pour éviter les clics multiples
+
+      // Debouncing to prevent multiple rapid clicks
       const now = Date.now();
       if (now - lastClickTime < 500) return;
       lastClickTime = now;
+
+      // Add active state animation to clicked link
+      e.target.classList.add('lightbox-active');
 
       const imageUrl = e.target.dataset.image;
       const title = e.target.dataset.name || e.target.closest('.item-wrapper').querySelector('h5').textContent;
 
       if (imageUrl) {
-        openLightbox(imageUrl, title);
+        openLightbox(imageUrl, title, e.target);
       }
     }
   });
 
-  // Close lightbox when clicking close button
-  closeButton.addEventListener('click', closeLightbox);
+  // Close button functionality
+  closeButton.addEventListener('click', () => closeLightbox());
 
-  // Close lightbox when clicking outside the content
+  // Close when clicking outside content
   lightbox.addEventListener('click', function(e) {
     if (e.target === lightbox) {
       closeLightbox();
     }
   });
 
-  // Close lightbox with Escape key
+  // Keyboard accessibility
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && lightbox.classList.contains('active')) {
       closeLightbox();

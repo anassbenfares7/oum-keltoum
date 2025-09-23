@@ -7,25 +7,28 @@
   <meta name="theme-color" content="#d4af37">
   <meta property="og:title" content="À propos — OUM KELTOUM">
   <meta property="og:description" content="Découvrez l'histoire et l'équipe du restaurant OUM KELTOUM.">
-  <meta property="og:image" content="https://www.oumkeltoum.ma/assets/images/about-bg.jpg">
+  <meta property="og:image" content="https://www.oumkeltoum.ma/assets/images/banner-img.webp">
   <link rel="canonical" href="https://www.oumkeltoum.ma/about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Restaurant","name":"OUM KELTOUM"}
   </script>
-    
+
     <!-- START: Cache-Control Directives -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
+    <meta http-equiv="Cache-Control" content="public">
     <!-- END: Cache-Control Directives -->
+
+    <style>
+      .loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999}.loader-icone{font-size:3rem;color:#d4af37;margin-bottom:1rem}.loader-ellipses{display:flex;gap:.5rem}.loader-ellipses span{width:10px;height:10px;background:#d4af37;border-radius:50%;animation:ellipses 1.4s infinite ease-in-out}.loader-ellipses span:nth-child(1){animation-delay:-.32s}.loader-ellipses span:nth-child(2){animation-delay:-.16s}@keyframes ellipses{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(0,0,0,.8);transition:transform .3s ease-in-out!important}header.hidden{transform:translateY(-100%)!important}.header{display:flex;justify-content:space-between;align-items:center}.logo a{display:flex;align-items:center;text-decoration:none;color:#fff}.logo h2,.logo h1{margin:0;font-family:'Montserrat',sans-serif}.menus ul{display:flex;list-style:none;margin:0;padding:0}.menus a{color:#fff;text-decoration:none;padding:1rem;text-transform:uppercase;font-family:'Montserrat',sans-serif}.mobile-menu{position:fixed;top:80px;left:0;width:100%;height:calc(100vh - 80px);background:rgba(0,0,0,.95);transform:translateX(-100%);transition:transform .3s ease-in-out;z-index:999}.mobile-menu.active{transform:translateX(0)}.mobile-menu-list{list-style:none;padding:2rem 0}.mobile-menu-list a{color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:1.1rem}.hamburger-icon,.hamburger-cross{cursor:pointer}
+    </style>
     
-    <link rel="icon" type="image/x-icon" href="./assets/images/banner-img.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/banner-img.webp" />
     <title>OUM KELTOUM - À Propos</title>
 
     <!-- YOUR CRITICAL CSS (Remains the same) -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.min.css" />
 
     <!-- NON-BLOCKING CSS (These will now load in the background) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -43,11 +46,43 @@
     <style>
       /* Header hide/show animation */
       header {
-        transition: transform 0.3s ease-in-out !important;
+        transition: all 0.5s ease-in-out !important;
+        transform: translateY(-100px);
+        opacity: 0;
       }
 
       header.hidden {
         transform: translateY(-100%) !important;
+      }
+
+      /* Font-display: swap for better font loading */
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
       }
     </style>
   </head>
@@ -169,7 +204,10 @@
       <div class="shopping-cart-body">
         <div class="row shopping-cart-item d-flex justify-content-between">
           <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-02a.jpg" alt="Tajine d'agneau aux légumes, spécialité du chef OUM KELTOUM" loading="lazy">
+            <picture>
+                <source srcset="./assets/images/webp/dish-01.webp" type="image/webp">
+                <img src="./assets/images/product-02a.jpg" alt="Tajine d'agneau aux légumes, spécialité du chef OUM KELTOUM" loading="lazy">
+            </picture>
           </div>
           <div class="col-8">
             <h3>The Cracker Barrel's Country Boy Breakfast</h3>
@@ -185,7 +223,10 @@
         </div>
         <div class="row shopping-cart-item d-flex justify-content-between">
           <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-02b.jpg" alt="Couscous aux sept légumes, plat traditionnel marocain" loading="lazy">
+            <picture>
+                <source srcset="./assets/images/webp/dish-02.webp" type="image/webp">
+                <img src="./assets/images/product-02b.jpg" alt="Couscous aux sept légumes, plat traditionnel marocain" loading="lazy">
+            </picture>
           </div>
           <div class="col-8">
             <h3>Old Timer's Meat Breakfast</h3>
@@ -201,7 +242,10 @@
         </div>
         <div class="row shopping-cart-item d-flex justify-content-between">
           <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-02c.jpg" alt="Pastilla au pigeon, pâtisserie salée royale marocaine" loading="lazy">
+            <picture>
+                <source srcset="./assets/images/webp/dish-03.webp" type="image/webp">
+                <img src="./assets/images/product-02c.jpg" alt="Pastilla au pigeon, pâtisserie salée royale marocaine" loading="lazy">
+            </picture>
           </div>
           <div class="col-8">
             <h3>Uncle Herschel's Favorite</h3>
@@ -217,7 +261,10 @@
         </div>
         <div class="row shopping-cart-item d-flex justify-content-between">
           <div class="col-2 d-flex align-items-center">
-            <img src="./assets/images/product-02d.jpg" alt="Brochettes de viande marinées aux épices marocaines" loading="lazy">
+            <picture>
+                <source srcset="./assets/images/webp/dish-04.webp" type="image/webp">
+                <img src="./assets/images/product-02d.jpg" alt="Brochettes de viande marinées aux épices marocaines" loading="lazy">
+            </picture>
           </div>
           <div class="col-8">
             <h3>Grandpa's Country Fried Breakfast</h3>
@@ -415,7 +462,10 @@
         <div class="container my-2 py-2 mt-lg-4 pt-lg-4 mb-lg-0 pb-lg-0">
           <div class="row">
             <div class="col-lg-4 d-none d-lg-block">
-              <img src="./assets/images/team-01.png" alt="Équipe professionnelle des chefs et serveurs du restaurant OUM KELTOUM" data-aos="fade-right" loading="lazy">
+              <picture>
+                  <source srcset="./assets/images/webp/team-01.webp" type="image/webp">
+                  <img src="./assets/images/team-01.png" alt="Équipe professionnelle des chefs et serveurs du restaurant OUM KELTOUM" data-aos="fade-right" loading="lazy">
+              </picture>
             </div>
             <div class="col-12 col-lg-8">
               <div class="testimonial-slider-wrapper">
@@ -515,7 +565,10 @@
                   </div>
                   <div class="box-showcase pb-5">
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                      <img class="img-fluid" src="./assets/images/feature-box-bg.jpg" alt="Décor" loading="lazy">
+                      <picture>
+                          <source srcset="./assets/images/webp/salad-01.webp" type="image/webp">
+                          <img class="img-fluid" src="./assets/images/feature-box-bg.jpg" alt="Décor" loading="lazy">
+                      </picture>
                       <h2 class="text-center">FRESH MENU</h2>
                     </div>
                   </div>
@@ -535,7 +588,10 @@
                   </div>
                   <div class="box-showcase pb-5">
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                      <img class="img-fluid" src="./assets/images/feature-box-bg-2.jpg" alt="Décor" loading="lazy">
+                      <picture>
+                          <source srcset="./assets/images/webp/salad-02.webp" type="image/webp">
+                          <img class="img-fluid" src="./assets/images/feature-box-bg-2.jpg" alt="Décor" loading="lazy">
+                      </picture>
                       <h2 class="text-center">VARIOUS DRINK</h2>
                     </div>
                   </div>
@@ -555,7 +611,10 @@
                   </div>
                   <div class="box-showcase pb-5">
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                      <img class="img-fluid" src="./assets/images/feature-box-bg-3.jpg" alt="Décor" loading="lazy">
+                      <picture>
+                          <source srcset="./assets/images/webp/salad-03.webp" type="image/webp">
+                          <img class="img-fluid" src="./assets/images/feature-box-bg-3.jpg" alt="Décor" loading="lazy">
+                      </picture>
                       <h2 class="text-center">EXCLUSIVE DISHES</h2>
                     </div>
                   </div>

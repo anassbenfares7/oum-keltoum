@@ -93,37 +93,43 @@
           "id": "pt9",
           "name": "Un Kilo de Tajine de Veau (كيلو طاجين لحم العجل)",
           "description": "1kg de veau mijoté en tajine, parfait pour plusieurs personnes. (1 كيلو من لحم العجل المطهو في طاجين، مثالي لعدة أشخاص.)",
-          "price": "220 DH"
+          "price": "220 DH",
+          "imageURL": "images/dish-01.jpg"
         },
         {
           "id": "pt10",
           "name": "Tajine de Viande aux Prunes (طاجين اللحم بالبرقوق)",
           "description": "Viande mijotée avec des pruneaux et des amandes. (لحم مطهو مع البرقوق واللوز.)",
-          "price": "80 DH"
+          "price": "80 DH",
+          "imageURL": "images/dish-04.jpg"
         },
         {
           "id": "pt11",
           "name": "Tajine Viande aux Oeufs (طاجين اللحم بالبيض)",
           "description": "Tajine de viande hachée avec des œufs. (طاجين اللحم المفروم مع البيض.)",
-          "price": "62 DH"
+          "price": "62 DH",
+          "imageURL": "images/dish-05.jpg"
         },
         {
           "id": "pt12",
           "name": "Seffa Sucré (السفة الحلوة)",
           "description": "Vermicelles fins à la cannelle et au sucre glace. (شعرية رقيقة بالقرفة والسكر البودرة.)",
-          "price": "39 DH"
+          "price": "39 DH",
+          "imageURL": "images/dish-06.jpg"
         },
         {
           "id": "pt13",
           "name": "Seffa M'dfouna (السفة المدفونة)",
           "description": "Vermicelles fins garnis de poulet ou de viande. (شعرية رقيقة محشوة بالدجاج أو اللحم.)",
-          "price": "49 DH"
+          "price": "49 DH",
+          "imageURL": "images/dish-07.jpg"
         },
         {
             "id": "pt14",
             "name": "Couscous Viande ou Poulet (كسكس باللحم أو الدجاج)",
             "description": "Couscous traditionnel à la viande ou au poulet. (كسكس تقليدي باللحم أو الدجاج.)",
-            "price": "49 DH"
+            "price": "49 DH",
+            "imageURL": "images/dish-08.jpg"
         },
         {
             "id": "pt15",
@@ -157,19 +163,22 @@
             "id": "pt19",
             "name": "Tanjia Viande (1 kg) (طنجية باللحم - 1 كيلو)",
             "description": "Un kilo de tanjia de viande au safran pur et smen. (كيلو من طنجية اللحم بالزعفران الحر والسمن.)",
-            "price": "220 DH"
+            "price": "220 DH",
+            "imageURL": "images/dish-01.jpg"
         },
         {
             "id": "pt20",
             "name": "Tanjia Poulet (1/2 kg) (طنجية بالدجاج - نصف كيلو)",
             "description": "Demi-kilo de tanjia de poulet au safran pur et smen. (نصف كيلو من طنجية الدجاج بالزعفران الحر والسمن.)",
-            "price": "90 DH"
+            "price": "90 DH",
+            "imageURL": "images/dish-02.jpg"
         },
         {
             "id": "pt21",
             "name": "Tanjia Poulet (1 kg) (طنجية بالدجاج - 1 كيلو)",
             "description": "Un kilo de tanjia de poulet au safran pur et smen. (كيلو من طنجية الدجاج بالزعفران الحر والسمن.)",
-            "price": "155 DH"
+            "price": "155 DH",
+            "imageURL": "images/dish-03.jpg"
         }
       ]
     },
