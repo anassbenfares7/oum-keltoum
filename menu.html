@@ -87,7 +87,7 @@
     </style>
     <style>
       :root {
-        --color-primary: #d4af37;
+        --color-primary: #075548;
         --color-secondary: #8B4513;
         --color-accent: #C19A6B;
         --color-text: #4A4A4A;
@@ -188,7 +188,7 @@
         <span></span>
       </div>
     </div>
-    
+
     <header class="bg-transparent">
       <!-- Desktop navigation -->
       <div class="container header my-3 d-none d-lg-flex">
@@ -276,6 +276,16 @@
       </div>
     </noscript>
 
+    <div class="search-bar d-none" id="search-container">
+      <div class="close-btn" id="search-close-btn">
+      </div>
+      <div class="search-bar-wrapper">
+        <input type="search" placeholder="Enter any text here..." />
+        <div class="search-button">
+        </div>
+      </div>
+    </div>
+
     <main class="menu-page">
         <section class="page-banner d-flex align-items-center">
           <div class="container"> 
@@ -362,6 +372,10 @@
                 </button>
             </div>
         </div>
+
+    <a href="#" id="back-to-top">
+      <i class="fa-solid fa-angles-up"></i>
+    </a>
 
     <!-- Footer -->
     <footer>
@@ -505,5 +519,5 @@
         }
       });
     </script>
-  </body>
+      </body>
 </html>
