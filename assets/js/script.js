@@ -49,12 +49,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const loader = document.querySelector('.loader');
     if (loader) {
       setTimeout(() => {
+        loader.style.transition = 'opacity 0.5s ease-out';
         loader.style.opacity = '0';
-        loader.style.display = 'none';
-      }, 3000);
+        setTimeout(() => {
+          loader.remove(); // Completely remove from DOM
+        }, 500);
+      }, 2000); // Reduced timeout
     }
   } catch (error) {
     console.error('Error handling loader:', error);
+    // Fallback: remove loader immediately if error occurs
+    const loader = document.querySelector('.loader');
+    if (loader) loader.remove();
   }
 });
 
@@ -88,7 +94,7 @@ document.addEventListener("click", function(event) {
 });
 
 
-// Header scroll behavior - Optimized approach
+// Header scroll behavior - Hide on scroll down, show on scroll up
 window.addEventListener('load', function() {
   const header = document.querySelector('header');
 
@@ -100,7 +106,7 @@ window.addEventListener('load', function() {
       left: '0',
       width: '100%',
       zIndex: '9999',
-      transition: 'all 0.3s ease-in-out',
+      transition: 'transform 0.3s ease-in-out',
       backgroundColor: 'rgba(0,0,0,0.8)'
     });
   }
@@ -108,14 +114,14 @@ window.addEventListener('load', function() {
   let lastScrollPosition = window.pageYOffset;
   let isHeaderHidden = false;
 
-  // Simple scroll function
+  // Scroll function - hide when scrolling down, show when scrolling up
   window.addEventListener('scroll', function() {
     const currentScrollPosition = window.pageYOffset;
 
-    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
+    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 50) {
       // Scrolling down - hide header
       if (!isHeaderHidden) {
-        header.style.transform = 'translateY(-100px)';
+        header.style.transform = 'translateY(-100%)';
         isHeaderHidden = true;
       }
     } else if (currentScrollPosition < lastScrollPosition) {
@@ -128,26 +134,40 @@ window.addEventListener('load', function() {
 
     lastScrollPosition = currentScrollPosition;
   });
+
+  // Also initialize on DOMContentLoaded for faster response
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    if (header) {
+      Object.assign(header.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100%',
+        zIndex: '9999',
+        transition: 'transform 0.3s ease-in-out',
+        backgroundColor: 'rgba(0,0,0,0.8)'
+      });
+    }
+  });
 });
 
 // Also try DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
   // DOM loaded - initialize components
-});
-
 
   // --- Smooth Scroll Back To Top (New code added here) ---
   const backToTopButton = document.getElementById('back-to-top');
 
   // Check if the button actually exists on the page
   if (backToTopButton) {
-  
+
     // Add a click event listener
     backToTopButton.addEventListener('click', function(event) {
-      
+
       // Prevent the default link behavior (which adds the '#' to the URL)
       event.preventDefault();
-      
+
       // Now, smoothly scroll the window to the top
       window.scrollTo({
         top: 0,
@@ -155,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
 });
 
 // Slider initialization
@@ -504,6 +523,7 @@ try {
 } catch (error) {
   console.error('Error updating copyright year:', error);
 }
+
 
 // Lightbox functionality with advanced animations
 function initializeLightbox() {

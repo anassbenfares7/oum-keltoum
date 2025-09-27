@@ -462,7 +462,11 @@
             <div class="col-lg-4 d-none d-lg-block">
               <picture>
                   <source srcset="./assets/images/webp/team-01.webp" type="image/webp">
-                  <img src="./assets/images/team-01.png" alt="Équipe professionnelle des chefs et serveurs du restaurant OUM KELTOUM" data-aos="fade-right" loading="lazy">
+                  <picture>
+    <source srcset="./assets/images/webp/team-01.webp" type="image/webp">
+    <source srcset="./assets/images/team-01.png" type="image/png">
+    <img src="./assets/images/team-01.png" alt="Équipe professionnelle des chefs et serveurs du restaurant OUM KELTOUM" loading="lazy">
+  </picture>
               </picture>
             </div>
             <div class="col-12 col-lg-8">
@@ -797,6 +801,9 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script defer src="./assets/js/script.js"></script>
+
+    <!-- WebP Support -->
+    <script defer src="./webp-support.js"></script>
     <!-- Inline header hide/show script -->
     <script>
       // Direct script for header hide/show
