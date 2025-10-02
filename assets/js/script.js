@@ -27,12 +27,16 @@ document.addEventListener("DOMContentLoaded", function() {
           if (hamburgerIcon && mobileMenu) {
             hamburgerIcon.addEventListener("click", function () {
               mobileMenu.style.transform = "translateX(0%)";
+              mobileMenu.classList.add("show");
             });
           }
 
           if (hamburgerCrossIcon) {
             hamburgerCrossIcon.addEventListener("click", function() {
-              if (mobileMenu) mobileMenu.style.transform = "translateX(-100%)";
+              if (mobileMenu) {
+                mobileMenu.style.transform = "translateX(-100%)";
+                mobileMenu.classList.remove("show");
+              }
             });
           }
         }
@@ -70,12 +74,16 @@ var getHamburgerCrossIcon = document.getElementById("hamburger-cross");
 var getMobileMenu = document.getElementById("mobile-menu");
 // Open / Close mobile menu (guarded)
 function closeMenu() {
-    if (getMobileMenu) getMobileMenu.style.transform = "translateX(-100%)";
+    if (getMobileMenu) {
+        getMobileMenu.style.transform = "translateX(-100%)";
+        getMobileMenu.classList.remove("show");
+    }
 }
 
 if (getHamburgerIcon && getMobileMenu) {
   getHamburgerIcon.addEventListener("click", function () {
     getMobileMenu.style.transform = "translateX(0%)";
+    getMobileMenu.classList.add("show");
   });
 }
 
@@ -111,29 +119,29 @@ window.addEventListener('load', function() {
     });
   }
 
-  let lastScrollPosition = window.pageYOffset;
-  let isHeaderHidden = false;
+  // let lastScrollPosition = window.pageYOffset;
+  // let isHeaderHidden = false;
 
-  // Scroll function - hide when scrolling down, show when scrolling up
-  window.addEventListener('scroll', function() {
-    const currentScrollPosition = window.pageYOffset;
+  // // Scroll function - hide when scrolling down, show when scrolling up
+  // window.addEventListener('scroll', function() {
+  //   const currentScrollPosition = window.pageYOffset;
 
-    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 50) {
-      // Scrolling down - hide header
-      if (!isHeaderHidden) {
-        header.style.transform = 'translateY(-100%)';
-        isHeaderHidden = true;
-      }
-    } else if (currentScrollPosition < lastScrollPosition) {
-      // Scrolling up - show header
-      if (isHeaderHidden) {
-        header.style.transform = 'translateY(0)';
-        isHeaderHidden = false;
-      }
-    }
+  //   if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 50) {
+  //     // Scrolling down - hide header
+  //     if (!isHeaderHidden) {
+  //       header.style.transform = 'translateY(-100%)';
+  //       isHeaderHidden = true;
+  //     }
+  //   } else if (currentScrollPosition < lastScrollPosition) {
+  //     // Scrolling up - show header
+  //     if (isHeaderHidden) {
+  //       header.style.transform = 'translateY(0)';
+  //       isHeaderHidden = false;
+  //     }
+  //   }
 
-    lastScrollPosition = currentScrollPosition;
-  });
+  //   lastScrollPosition = currentScrollPosition;
+  // });
 
   // Also initialize on DOMContentLoaded for faster response
   document.addEventListener('DOMContentLoaded', function() {
@@ -235,7 +243,7 @@ function renderMenuItems(categories) {
               <div class="item-right">
                 <span class="item-price">
                   ${item.price}
-                  <a class="voir-photo-link" data-image="${item.imageURL ? `./assets/${item.imageURL}` : 'not-available'}" data-name="${item.name}">Voir photo</a>
+                  <a class="voir-photo-link" data-image="${item.imageURL ? `./assets/${item.imageURL}` : 'not-available'}" data-name="${item.name}">${item.imageURL ? 'Voir photo' : 'Photo not available'}</a>
                 </span>
               </div>
             </div>
@@ -323,7 +331,17 @@ async function initializeMenu() {
 
 
 // Initialize menu when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeMenu);
+document.addEventListener('DOMContentLoaded', function() {
+  initializeMenu();
+
+  // Re-initialize lightbox after menu loads (for dynamic content)
+  setTimeout(() => {
+    const menuContainer = document.getElementById('our-menus');
+    if (menuContainer) {
+      initializeLightbox();
+    }
+  }, 1000);
+});
 
 // // Custom animation for Our Menu slider
 // $('#our-menus').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
@@ -534,12 +552,15 @@ function initializeLightbox() {
   const lightboxTitle = lightbox.querySelector('.menu-lightbox-title');
   const closeButton = lightbox.querySelector('.menu-lightbox-close');
 
-  // Enhanced image preloading with cache
+  // Simple image preloading with placeholder fallback
   function preloadImage(url) {
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => resolve(url);
-      img.onerror = () => reject(new Error('Image not found'));
+      img.onerror = () => {
+        // If image fails to load, use placeholder
+        resolve('./assets/images/photo-not-available.svg');
+      };
       img.src = url;
     });
   }
@@ -577,43 +598,25 @@ function initializeLightbox() {
     // Handle image not available case
     if (imageUrl === 'not-available') {
       setTimeout(() => {
-        lightboxImage.style.display = 'none';
-        lightboxPlaceholder.style.display = 'flex';
-        lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
+        lightboxImage.src = './assets/images/photo-not-available.svg';
+        lightboxImage.style.display = 'block';
+        lightboxPlaceholder.style.display = 'none';
       }, 300);
       return;
     }
 
-    // Load image with enhanced error handling and WebP support
+    // Simple image loading with placeholder fallback
     try {
-      // Convert original image path to WebP if available
-      let webpImageUrl = '';
-      if (imageUrl && imageUrl !== 'not-available') {
-        // Convert .jpg, .png, etc. to .webp and ensure proper path structure
-        if (imageUrl.startsWith('./assets/')) {
-          webpImageUrl = imageUrl.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
-        } else if (imageUrl.startsWith('images/')) {
-          webpImageUrl = './assets/' + imageUrl.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
-        } else {
-          webpImageUrl = './assets/images/webp/' + imageUrl.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
-        }
-
-        // Update the picture element source
-        const pictureElement = lightbox.querySelector('picture');
-        const sourceElement = pictureElement.querySelector('source');
-        sourceElement.srcset = webpImageUrl;
-      }
-
-      await preloadImage(imageUrl);
-      lightboxImage.src = imageUrl;
+      // Try to preload the main image first
+      const finalImageUrl = await preloadImage(imageUrl);
+      lightboxImage.src = finalImageUrl;
       lightboxImage.style.display = 'block';
       lightboxPlaceholder.style.display = 'none';
     } catch (error) {
-      setTimeout(() => {
-        lightboxImage.style.display = 'none';
-        lightboxPlaceholder.style.display = 'flex';
-        lightboxPlaceholder.innerHTML = '<i class="fas fa-image"></i><p>Image non disponible</p>';
-      }, 300);
+      // If everything fails, show placeholder
+      lightboxImage.src = './assets/images/photo-not-available.svg';
+      lightboxImage.style.display = 'block';
+      lightboxPlaceholder.style.display = 'none';
     }
   }
 

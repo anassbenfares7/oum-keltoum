@@ -474,53 +474,5 @@
 
     <!-- WebP Support -->
     <script defer src="./webp-support.js"></script>
-    <!-- Inline header hide/show script -->
-    <script>
-      // Direct script for header hide/show
-      console.log('INLINE SCRIPT LOADED');
-
-      window.addEventListener('load', function() {
-        console.log('INLINE: Page loaded');
-        const header = document.querySelector('header');
-
-        if (header) {
-          console.log('INLINE: Header found');
-          header.style.position = 'fixed';
-          header.style.top = '0';
-          header.style.left = '0';
-          header.style.width = '100%';
-          header.style.zIndex = '9999';
-          header.style.transition = 'transform 0.3s ease-in-out';
-          header.style.backgroundColor = 'rgba(0,0,0,0.8)';
-
-          let lastScroll = 0;
-          let hidden = false;
-
-          window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > lastScroll && currentScroll > 100) {
-              // Scrolling down
-              if (!hidden) {
-                header.style.transform = 'translateY(-100px)';
-                hidden = true;
-                console.log('INLINE: Header hidden');
-              }
-            } else {
-              // Scrolling up
-              if (hidden) {
-                header.style.transform = 'translateY(0)';
-                hidden = false;
-                console.log('INLINE: Header shown');
-              }
-            }
-
-            lastScroll = currentScroll;
-          });
-        } else {
-          console.log('INLINE: Header not found');
-        }
-      });
-    </script>
-      </body>
+    </body>
 </html>
