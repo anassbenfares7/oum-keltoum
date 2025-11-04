@@ -11,7 +11,7 @@ echo ""
 echo "📊 Current Status:"
 echo "   Current branch: $(git branch --show-current)"
 echo "   Total commits: $(git rev-list --count HEAD)"
-echo "   Last commit: $(git log -1 --format=%h - %s)"
+echo "   Last commit: $(git log -1 --format='%h - %s')"
 
 # Check if there are any changes
 STAGED_FILES=$(git diff --cached --name-only | wc -l)
