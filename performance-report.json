@@ -1,0 +1,178 @@
+{
+  "timestamp": "2025-09-23T17:22:25.807Z",
+  "scores": {
+    "performance": 82,
+    "bestPractices": 90,
+    "accessibility": 98,
+    "seo": 95,
+    "pwa": 75
+  },
+  "details": {
+    "performance": {
+      "webp": {
+        "score": 7,
+        "status": "⚠️ Needs improvement",
+        "files": "22/81 images converted"
+      },
+      "loading": {
+        "score": 20,
+        "status": "✅ Excellent",
+        "lazyImages": 13,
+        "deferredScripts": 7,
+        "preloadedResources": 5,
+        "preconnectResources": 4
+      },
+      "caching": {
+        "score": 15,
+        "status": "✅ Configured",
+        "compression": "Brotli + Gzip"
+      },
+      "resources": {
+        "score": 20,
+        "status": "✅ Optimized",
+        "jsSize": "76KB",
+        "cssSize": "109KB"
+      },
+      "criticalCss": {
+        "score": 10,
+        "status": "✅ Implemented"
+      },
+      "serviceWorker": {
+        "score": 10,
+        "status": "✅ Implemented"
+      }
+    },
+    "bestPractices": {
+      "https": {
+        "score": 15,
+        "status": "✅ Ready for HTTPS",
+        "note": "Will be enabled on Hostinger"
+      },
+      "security": {
+        "score": 15,
+        "status": "⚠️ Partial",
+        "headers": "3/4 implemented"
+      },
+      "javascript": {
+        "score": 15,
+        "status": "✅ Modern ES6+",
+        "note": "Using modern JavaScript features"
+      },
+      "images": {
+        "score": 15,
+        "status": "⚠️ Basic optimization",
+        "note": "0 responsive images"
+      },
+      "fonts": {
+        "score": 15,
+        "status": "✅ Optimized"
+      },
+      "codeQuality": {
+        "score": 15,
+        "status": "✅ Good structure",
+        "note": "Clean HTML5, CSS3, ES6+ code"
+      }
+    },
+    "accessibility": {
+      "altText": {
+        "score": 25,
+        "status": "✅ Excellent",
+        "ratio": "13/13 images have alt text"
+      },
+      "language": {
+        "score": 15,
+        "status": "✅ French specified"
+      },
+      "viewport": {
+        "score": 15,
+        "status": "✅ Responsive"
+      },
+      "semantic": {
+        "score": 18,
+        "status": "✅ Good structure",
+        "tags": "9 semantic elements"
+      },
+      "colorContrast": {
+        "score": 15,
+        "status": "✅ Good contrast",
+        "note": "Proper color scheme implemented"
+      },
+      "forms": {
+        "score": 10,
+        "status": "✅ Accessible forms"
+      }
+    },
+    "seo": {
+      "meta": {
+        "score": 20,
+        "status": "⚠️ Missing meta tags",
+        "title": "✅",
+        "description": "✅",
+        "keywords": "❌"
+      },
+      "openGraph": {
+        "score": 20,
+        "status": "✅ Complete",
+        "tags": "4/4 implemented"
+      },
+      "structuredData": {
+        "score": 15,
+        "status": "✅ Implemented"
+      },
+      "mobile": {
+        "score": 20,
+        "status": "✅ Mobile-friendly",
+        "viewport": "✅",
+        "responsiveImages": "✅"
+      },
+      "urlStructure": {
+        "score": 10,
+        "status": "✅ Clean URLs",
+        "note": "Proper HTML file structure"
+      },
+      "sitemap": {
+        "score": 10,
+        "status": "✅ Present"
+      }
+    },
+    "pwa": {
+      "serviceWorker": {
+        "score": 30,
+        "status": "✅ Implemented"
+      },
+      "manifest": {
+        "score": 0,
+        "status": "❌ Missing manifest"
+      },
+      "https": {
+        "score": 20,
+        "status": "✅ Ready for HTTPS",
+        "note": "Will be enabled on Hostinger"
+      },
+      "offline": {
+        "score": 15,
+        "status": "✅ Offline page"
+      },
+      "installable": {
+        "score": 10,
+        "status": "⚠️ Basic support",
+        "note": "Ready for PWA features"
+      }
+    }
+  },
+  "overall": 91,
+  "recommendations": [
+    {
+      "priority": "High",
+      "category": "Performance",
+      "title": "Complete WebP conversion",
+      "description": "Convert remaining images to WebP format for 40-60% size reduction"
+    },
+    {
+      "priority": "Low",
+      "category": "PWA",
+      "title": "Create web app manifest",
+      "description": "Add manifest.json for installable app experience"
+    }
+  ]
+}

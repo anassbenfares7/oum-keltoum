@@ -1,0 +1,19 @@
+{
+  "name": "oum-keltoum-v0.5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.44.0"
+  },
+  "description": "",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

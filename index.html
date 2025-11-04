@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="OUM KELTOUM — Restaurant marocain proposant tajines, couscous et spécialités traditionnelles. Réservez votre table en ligne.">
+  <meta name="theme-color" content="#d4af37">
+  <!-- Open Graph -->
+  <meta property="og:title" content="OUM KELTOUM — Restaurant Marocain">
+  <meta property="og:description" content="Cuisine marocaine authentique à Casablanca. Tajines, couscous et saveurs du Maroc.">
+  <meta property="og:image" content="https://www.oumkeltoum.ma/assets/images/banner-img.webp">
+  <meta property="og:type" content="restaurant">
+  <link rel="canonical" href="https://www.oumkeltoum.ma/index.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Restaurant","name":"OUM KELTOUM","address":{"@type":"PostalAddress","streetAddress":"45 Avenue Mohammed V","addressLocality":"Casablanca","addressCountry":"MA","telephone":"+212522000000","openingHours":"Mo-Su 12:00-23:59"}
+  </script>
+
+    <!-- START: Cache-Control Directives -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
+    <meta http-equiv="Cache-Control" content="public">
+    <!-- END: Cache-Control Directives -->
+
+        
+    <!-- START: Cache-Control Directives -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
+    <meta http-equiv="Cache-Control" content="public">
+    <!-- END: Cache-Control Directives -->
+    
+    <link rel="icon" type="image/x-icon" href="./assets/images/banner-img.webp" />
+    <title>Restaurant Marocain OUM KELTOUM</title>
+
+    <!-- OPTIMIZED CSS LOADING -->
+    <!-- Critical CSS inlined for above-the-fold content -->
+    
+    <!-- Non-critical CSS loaded async -->
+    <link rel="preload" href="./assets/css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./assets/css/style.min.css"></noscript>
+
+    <!-- NON-BLOCKING CSS (These will now load in the background) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+
+    <link rel="preload" href="https://unpkg.com/aos@next/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"></noscript>
+
+    <link rel="preload" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"></noscript>
+
+    <style>
+      /* Critical CSS for above-the-fold content */
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .loader-icone {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .loader-ellipses {
+        display: flex;
+        width: 100px;
+        justify-content: space-between;
+      }
+
+      .loader-ellipses span {
+        background-color: var(--primary-color);
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        opacity: 0;
+        animation: loader-grow 2s infinite alternate;
+      }
+
+      .loader-ellipses span:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+
+      .loader-ellipses span:nth-child(3) {
+        animation-delay: 0.8s;
+      }
+
+      @keyframes loader-grow {
+        to {
+          transform: scale(1.2);
+          opacity: 100%;
+        }
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(0,0,0,0.8);
+        transition: transform 0.8s ease-in-out !important;
+      }
+
+      header.hidden {
+        transform: translateY(-100%) !important;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+      }
+
+      .logo h2, .logo h1 {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .menus ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menus a {
+        color: white;
+        text-decoration: none;
+        padding: 1rem;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      /* Page banner critical styles */
+      .page-banner {
+        min-height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./assets/images/banner-img.webp');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+
+      .banner-content h2 {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .banner-content p {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      /* Header scrolled state */
+      header.scrolled .menus > ul > li::after {
+        background-color: var(--text-color-white);
+      }
+
+      /* Font-display: swap for better font loading */
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Hw0aXx-pneK.woff2) format('woff2');
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="loader">
+      <i class="fas fa-utensils loader-icone"></i>
+      <p>OUM KELTOUM</p>
+      <div class="loader-ellipses">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <header class="bg-transparent">
+      <!-- Desktop navigation -->
+      <div class="container header my-3 d-none d-lg-flex">
+        <div class="logo">
+            <a href="./index.html">
+                <i class="fa fa-utensils text-white me-3"></i>
+                <h2 class="mb-0 text-white">OUM KELTOUM</h2>
+            </a>
+        </div>
+        <div class="menus">
+            <ul class="d-flex mb-0">
+                <li class="list-unstyled py-2">
+                    <a class="text-decoration-none text-uppercase p-4 text-white" href="./index.html">Accueil</a>
+                </li>
+                <li class="list-unstyled py-2">
+                    <a class="text-decoration-none text-uppercase p-4 text-white" href="./about.html">À Propos</a>
+                </li>
+                <li class="list-unstyled py-2">
+                    <a class="text-decoration-none text-uppercase p-4 text-white" href="./reservation.html">Réservation</a>
+                </li>
+                <li class="list-unstyled py-2">
+                    <a class="text-decoration-none text-uppercase p-4 text-white" href="./menu.html">Menu</a>
+                </li>
+                <li class="list-unstyled py-2">
+                    <a class="text-decoration-none text-uppercase p-4 text-white" href="./contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="icons">
+        </div>
+      </div>
+
+      <!-- Mobile navigation -->
+      <div class="d-flex justify-content-around py-3 align-items-center d-lg-none">
+        <div id="hamburger">
+            <i class="fa fa-2x fa-bars me-3 text-white"></i>
+        </div>
+        <div class="mobile-nav-logo">
+            <div class="logo">
+                <a href="./index.html">
+                    <i class="fa fa-utensils text-white me-3"></i>
+                    <h1 class="mb-0 text-white">OUM KELTOUM</h1>
+                </a>
+            </div>
+        </div>
+        <div class="mobile-nav-icons">
+            <div class="icons">
+                <a class="text-decoration-none" id="searchBtnMobile" href="#">
+                </a>
+                <a class="text-decoration-none" id="shoppingbuttonMobile" href="#">
+                </a>
+            </div>
+        </div>
+        <div class="position-fixed w-75 bg-white h-100 top-0 start-0" id="mobile-menu">
+            <div id="hamburger-cross" class="d-flex justify-content-end align-items-center py-2">
+                <i class="fa fa-2x fa-plus me-3"></i>
+            </div>
+            <div class="menus">
+                <ul class="d-flex flex-column ps-2 mb-0 mt-4">
+                    <li class="list-unstyled py-3">
+                        <a class="text-dark text-decoration-none text-uppercase p-4" href="./index.html">Accueil</a>
+                    </li>
+                    <li class="list-unstyled py-3">
+                        <a class="text-dark text-decoration-none text-uppercase p-4" href="./about.html">À Propos</a>
+                    </li>
+                    <li class="list-unstyled py-3">
+                        <a class="text-dark text-decoration-none text-uppercase p-4" href="./reservation.html">Réservation</a>
+                    </li>
+                    <li class="list-unstyled py-3">
+                        <a class="text-dark text-decoration-none text-uppercase p-4" href="./menu.html">Menu</a>
+                    </li>
+                    <li class="list-unstyled py-3">
+                        <a class="text-dark text-decoration-none text-uppercase p-4" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Noscript navigation fallback -->
+    <noscript>
+      <div class="alert alert-warning m-3">
+        JavaScript is disabled. Please enable JavaScript for full functionality.
+      </div>
+    </noscript>
+
+    <div class="search-bar d-none" id="search-container">
+      <div class="close-btn" id="search-close-btn">
+      </div>
+      <div class="search-bar-wrapper">
+        <input type="search" placeholder="Enter any text here..." />
+        <div class="search-button">
+        </div>
+      </div>
+    </div>
+    
+    <main>
+      <section class="banner py-5">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-6 banner-content pe-5" data-aos="fade-right">
+            <h1 class="display-2">Savourez Notre Cuisine <br> Marocaine</h1>
+            <p>
+              Découvrez les saveurs authentiques du Maroc dans notre restaurant traditionnel. Tajines parfumés, couscous royal, pastillas délicieuses et thé à la menthe vous attendent dans une ambiance chaleureuse et conviviale.
+            </p>
+            
+            <div class="banner-buttons d-flex align-items-center mt-4">
+              <div class="book-a-table">
+                <div class="anim-layer"></div>
+                <a href="./reservation.html">Réserver une table</a>
+              </div>
+              <div class="view-menu-btn ms-3">
+                <div class="anim-layer"></div>
+                <a href="./menu.html">Voir le Menu</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+      
+      <section class="services my-5 py-5">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-md-3">
+              <div class="cards px-4 py-5" data-aos="fade-right">
+                <div class="anim-layer"></div>
+                <div class="icon"> 
+                  <i class="fa fa-3x fa-user-tie mb-4"></i>
+                </div>
+                <div class="heading">
+                  <h5>Chefs Experts</h5>
+                </div>
+                <div class="para">
+                  <p>Nos chefs marocains maîtrisent l'art culinaire traditionnel avec passion et expertise</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="cards px-4 py-5" data-aos="fade-down">
+                <div class="anim-layer"></div>
+                <div class="icon">
+                  <i class="fa fa-3x fa-utensils mb-4"></i>
+                </div>
+                <div class="heading">
+                  <h5>Cuisine Authentique</h5>
+                </div>
+                <div class="para">
+                  <p>Plats traditionnels préparés avec des épices et ingrédients authentiques du Maroc</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="cards px-4 py-5" data-aos="fade-up">
+                <div class="anim-layer"></div>
+                <div class="icon">
+                  <i class="fa fa-3x fa-cart-plus mb-4"></i>
+                </div>
+                <div class="heading">
+                  <h5>Commande en Ligne</h5>
+                </div>
+                <div class="para">
+                  <p>Commandez vos plats marocains favoris en ligne pour livraison ou à emporter</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="cards px-4 py-5" data-aos="fade-left">
+                <div class="anim-layer"></div>
+                <div class="icon">
+                  <i class="fa fa-3x fa-headset mb-4"></i>
+                </div>
+                <div class="heading">
+                  <h5>Service 7j/7</h5>
+                </div>
+                <div class="para">
+                  <p>Notre équipe vous accueille chaleureusement tous les jours de la semaine</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-us py-5 my-5">
+        <div class="container">
+          <div class="row gy-5 g-lg-5 align-items-center">
+              <div class="col-lg-6 about-img-box">
+                  <div class="row g-3">
+                      <div class="col-6" data-aos="fade-right">
+                          <picture>
+                              <source srcset="./assets/images/webp/about-1.webp" type="image/webp">
+                              <picture>
+    <source srcset="./assets/images/webp/about-1.webp" type="image/webp">
+    <source srcset="./assets/images/about-1.jpg" type="image/jpeg">
+    <img src="./assets/images/about-1.jpg" alt="Intérieur moderne du restaurant OUM KELTOUM avec décor marocain traditionnel" class="img-fluid rounded w-100" loading="lazy">
+  </picture>
+                          </picture>
+                      </div>
+                      <div class="col-6 text-right" data-aos="fade-down">
+                          <picture>
+                              <source srcset="./assets/images/webp/about-2.webp" type="image/webp">
+                              <picture>
+    <source srcset="./assets/images/webp/about-2.webp" type="image/webp">
+    <source srcset="./assets/images/about-2.jpg" type="image/jpeg">
+    <img src="./assets/images/about-2.jpg" alt="Tajine d" class="img-fluid rounded w-75" loading="lazy">
+  </picture>
+                          </picture>
+                      </div>
+                      <div class="col-6 text-end" data-aos="fade-right">
+                          <picture>
+                              <source srcset="./assets/images/webp/about-3.webp" type="image/webp">
+                              <picture>
+    <source srcset="./assets/images/webp/about-3.webp" type="image/webp">
+    <source srcset="./assets/images/about-3.jpg" type="image/jpeg">
+    <img src="./assets/images/about-3.jpg" alt="Préparation de légumes frais pour la cuisine marocaine traditionnelle" class="img-fluid rounded w-75" loading="lazy">
+  </picture>
+                          </picture>
+                      </div>
+                      <div class="col-6 text-end" data-aos="fade-up">
+                          <picture>
+                              <source srcset="./assets/images/webp/about-4.webp" type="image/webp">
+                              <picture>
+    <source srcset="./assets/images/webp/about-4.webp" type="image/webp">
+    <source srcset="./assets/images/about-4.jpg" type="image/jpeg">
+    <img src="./assets/images/about-4.jpg" alt="Salle à manger élégante du restaurant avec tables dressées pour dîner marocain" class="img-fluid rounded w-100" loading="lazy">
+  </picture>
+                          </picture>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6 about-content" data-aos="fade-left">
+                  <h5 class="section-title">À Propos de Nous</h5>
+                  <h2 class="mb-4 dis">Bienvenue chez <i class="fa fa-utensils  me-2"></i>OUM KELTOUM</h2>
+                  <p class="mb-4">Découvrez l'art culinaire marocain dans toute sa splendeur. Notre restaurant vous invite à un voyage authentique à travers les saveurs traditionnelles du Maroc, préparées avec passion par nos chefs experts.</p>
+                  <p class="mb-4">Depuis plus de 15 ans, nous perpétuons les traditions culinaires marocaines en utilisant des épices authentiques et des recettes transmises de génération en génération. Chaque plat raconte une histoire, chaque saveur évoque un souvenir du Maroc éternel.</p>
+                  <div class="row g-4 mb-4 about-extra">
+                      <div class="col-sm-6">
+                          <div class="d-flex align-items-center px-3 about-experience">
+                              <h1 class="flex-shrink-0  mb-0">15</h1>
+                              <div class="ps-4">
+                                  <p class="mb-0">Années d'</p>
+                                  <h6 class="text-uppercase mb-0">Expérience</h6>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="d-flex align-items-center px-3 about-popular">
+                              <h1 class="flex-shrink-0  mb-0">8</h1>
+                              <div class="ps-4">
+                                  <p class="mb-0">Chefs</p>
+                                  <h6 class="text-uppercase mb-0">Marocains</h6>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="book-a-table">
+                    <div class="anim-layer"></div>
+                    <a href="/about.html">En savoir plus</a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="our-chefs py-5">
+        <div class="container">
+          <div class="row" data-aos="fade-right">
+            <div class="section-title text-center">
+              <h5>Rencontrez Nos</h5>
+              <h2 class="display-6 fw-bold">Chefs Marocains Experts</h2>
+            </div>
+          </div>
+
+          <div class="row our-chef-slider-wrapper py-5" data-aos="fade-left">
+            <div class="col-lg-4">
+              <div class="our-chef-slider d-flex flex-column align-items-center gap-4">
+                <picture>
+                    <source srcset="./assets/images/webp/team-02.webp" type="image/webp">
+                    <picture>
+    <source srcset="./assets/images/webp/team-02.webp" type="image/webp">
+    <source srcset="./assets/images/team-02.png" type="image/png">
+    <img src="./assets/images/team-02.png" alt="Chef Aicha Tazi, spécialiste des tajines marocains, portrait professionnel en tenue de cuisine" loading="lazy" width="200px">
+  </picture>
+                </picture>
+                <div class="chef-slider-content">
+                  <h5 class="text-center d-block">Chef Aicha Tazi</h5>
+                  <p class="text-center mb-0">Spécialiste Tajines</p>
+                  <div class="d-flex justify-content-center">
+                    <hr class="w-25 my-2">
+                  </div> 
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li class="mx-2">
+                      <a href="https://www.facebook.com" target="_blank" class="text-white">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.instagram.com" target="_blank" class="text-white">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.twitter.com" target="_blank" class="text-white">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.linkedin.com" target="_blank" class="text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-4">
+              <div class="our-chef-slider d-flex flex-column align-items-center gap-4">
+                <picture>
+                    <source srcset="./assets/images/webp/team-01.webp" type="image/webp">
+                    <picture>
+    <source srcset="./assets/images/webp/team-01.webp" type="image/webp">
+    <source srcset="./assets/images/team-01.png" type="image/png">
+    <img src="./assets/images/team-01.png" alt="Chef Rachid Benali, chef principal du restaurant OUM KELTOUM, portrait professionnel" loading="lazy" width="200px">
+  </picture>
+                </picture>
+                <div class="chef-slider-content">
+                  <h5 class="text-center d-block">Chef Rachid Benali</h5>
+                  <p class="text-center mb-0">Chef Principal</p>
+                  <div class="d-flex justify-content-center">
+                    <hr class="w-25 my-2">
+                  </div> 
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li class="mx-2">
+                      <a href="https://www.facebook.com" target="_blank" class="text-white">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.instagram.com" target="_blank" class="text-white">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.twitter.com" target="_blank" class="text-white">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.linkedin.com" target="_blank" class="text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="our-chef-slider d-flex flex-column align-items-center gap-4">
+                <picture>
+                    <source srcset="./assets/images/webp/team-02.webp" type="image/webp">
+                    <picture>
+    <source srcset="./assets/images/webp/team-02.webp" type="image/webp">
+    <source srcset="./assets/images/team-02.png" type="image/png">
+    <img src="./assets/images/team-02.png" alt="Chef Aicha Tazi, spécialiste des tajines marocains, portrait professionnel en tenue de cuisine" loading="lazy" width="200px">
+  </picture>
+                </picture>
+                <div class="chef-slider-content">
+                  <h5 class="text-center d-block">Chef Aicha Tazi</h5>
+                  <p class="text-center mb-0">Spécialiste Tajines</p>
+                  <div class="d-flex justify-content-center">
+                    <hr class="w-25 my-2">
+                  </div> 
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li class="mx-2">
+                      <a href="https://www.facebook.com" target="_blank" class="text-white">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.instagram.com" target="_blank" class="text-white">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.twitter.com" target="_blank" class="text-white">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.linkedin.com" target="_blank" class="text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="our-chef-slider d-flex flex-column align-items-center gap-4">
+                <picture>
+                    <source srcset="./assets/images/webp/team-03.webp" type="image/webp">
+                    <picture>
+    <source srcset="./assets/images/webp/team-03.webp" type="image/webp">
+    <source srcset="./assets/images/team-03.png" type="image/png">
+    <img src="./assets/images/team-03.png" alt="Chef Omar Fassi, expert en couscous marocain traditionnel, portrait professionnel" loading="lazy" width="200px">
+  </picture>
+                </picture>
+                <div class="chef-slider-content">
+                  <h5 class="text-center d-block">Chef Omar Fassi</h5>
+                  <p class="text-center mb-0">Expert Couscous</p>
+                  <div class="d-flex justify-content-center">
+                    <hr class="w-25 my-2">
+                  </div> 
+                  <ul class="list-unstyled d-flex justify-content-center">
+                    <li class="mx-2">
+                      <a href="https://www.facebook.com" target="_blank" class="text-white">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.instagram.com" target="_blank" class="text-white">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.twitter.com" target="_blank" class="text-white">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li class="mx-2">
+                      <a href="https://www.linkedin.com" target="_blank" class="text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+
+      <section class="our-services py-5 my-5">
+        <div class="container">
+          <div class="row">
+            <div class="section-title text-center" data-aos="fade-right">
+              <h5>Nos services</h5>
+              <h2 class="display-6 fw-bold">Nos priorités</h2>
+            </div>
+          </div>
+          <div class="row pt-5">
+            <div data-aos="fade-up-right" class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center align-items-center flex-column">
+              <div class="icon-box">
+                <i class="fas fa-utensils fa-2x"></i>
+                <span class="number">1</span>
+              </div>
+              <h4>Réservation</h4>
+              <p class="text-center">Réservez votre table en quelques clics et profitez d’un moment agréable en toute simplicité.</p>
+            </div>
+            <div data-aos="fade-down" class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center align-items-center flex-column">
+              <div class="icon-box">
+                <i class="fas fa-wine-glass-alt fa-2x"></i>
+                <span class="number">2</span>
+              </div>
+              <h4>Événement privé</h4>
+              <p class="text-center">Réservez votre table en quelques clics et profitez d’un moment agréable en toute simplicité.</p>
+            </div>
+            <div data-aos="fade-up-left" class="col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center align-items-center flex-column">
+              <div class="icon-box">
+                <i class="fas fa-motorcycle fa-2x"></i>
+                <span class="number">3</span>
+              </div>
+              <h4>Service rapide</h4>
+              <p class="text-center">Profitez d’un service efficace et fluide pour un moment sans attente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="our-gallery pt-5">
+        <div class="container-fluid pt-5">
+          <div class="row">
+            <div class="section-title text-center" data-aos="fade-right">
+              <h5>Notre galerie</h5>
+              <h2 class="text-white display-6 fw-bold">Plats chauds du jour</h2>
+            </div>
+          </div>
+          <div class="row pt-5">
+            <div class="col-md-3 p-0">
+              <div data-aos="fade-down-right">
+                <picture>
+                    <source srcset="./assets/images/webp/gallery-1.webp" type="image/webp">
+                    <picture>
+    <source srcset="./assets/images/webp/gallery-1.webp" type="image/webp">
+    <source srcset="./assets/images/gallery-1.jpg" type="image/jpeg">
+    <img src="./assets/images/gallery-1.jpg" alt="Tajine marocain aux légumes et fruits confits, plat traditionnel servi dans un tajine en terre cuite" class="img-fluid w-100" loading="lazy" style="height: 650px; object-fit: cover;">
+  </picture>
+                </picture>
+              </div>
+            </div>
+            <div class="col-md-6 p-0">
+              <div class="row m-0">
+                <div class="col-md-8 p-0">
+                  <div data-aos="fade-down">
+                    <picture>
+                        <source srcset="./assets/images/webp/gallery-2.webp" type="image/webp">
+                        <picture>
+    <source srcset="./assets/images/webp/gallery-2.webp" type="image/webp">
+    <source srcset="./assets/images/gallery-2.jpg" type="image/jpeg">
+    <img src="./assets/images/gallery-2.jpg" alt="Assortiment de mezze marocains et entrées traditionnelles présentées dans des plats colorés" class="img-fluid w-100" loading="lazy" style="height: 325px; object-fit: cover;">
+  </picture>
+                    </picture>
+                  </div>
+                </div>
+                <div class="col-md-4 p-0">
+                  <div data-aos="fade-down">
+                    <picture>
+                        <source srcset="./assets/images/webp/gallery-3.webp" type="image/webp">
+                        <picture>
+    <source srcset="./assets/images/webp/gallery-3.webp" type="image/webp">
+    <source srcset="./assets/images/gallery-3.jpg" type="image/jpeg">
+    <img src="./assets/images/gallery-3.jpg" alt="Brochettes de viande grillées marinées aux épices marocaines" class="img-fluid w-100" loading="lazy" style="height: 325px; object-fit: cover;">
+  </picture>
+                    </picture>
+                  </div>
+                </div>
+              </div>
+              <div class="row m-0">
+                <div class="col-md-4 p-0">
+                  <div data-aos="fade-up">
+                    <picture>
+                        <source srcset="./assets/images/webp/gallery-5.webp" type="image/webp">
+                        <picture>
+    <source srcset="./assets/images/webp/gallery-5.webp" type="image/webp">
+    <source srcset="./assets/images/gallery-5.jpg" type="image/jpeg">
+    <img src="./assets/images/gallery-5.jpg" alt="Couscous royal aux sept légumes et viandes, plat traditionnel marocain" class="img-fluid w-100" loading="lazy" style="height: 325px; object-fit: cover;">
+  </picture>
+                    </picture>
+                  </div>
+                </div>
+                <div class="col-md-8 p-0">
+                  <div data-aos="fade-up">
+                    <picture>
+                        <source srcset="./assets/images/webp/gallery-6.webp" type="image/webp">
+                        <picture>
+    <source srcset="./assets/images/webp/gallery-6.webp" type="image/webp">
+    <source srcset="./assets/images/gallery-6.jpg" type="image/jpeg">
+    <img src="./assets/images/gallery-6.jpg" alt="Pastilla au pigeon et aux amandes, pâtisserie salée traditionnelle marocaine" class="img-fluid w-100" loading="lazy" style="height: 325px; object-fit: cover;">
+  </picture>
+                    </picture>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 p-0">
+              <div data-aos="fade-up-left">
+                <picture>
+                    <source srcset="./assets/images/webp/gallery-4.webp" type="image/webp">
+                    <picture>
+    <source srcset="./assets/images/webp/gallery-4.webp" type="image/webp">
+    <source srcset="./assets/images/gallery-4.jpg" type="image/jpeg">
+    <img src="./assets/images/gallery-4.jpg" alt="Thé à la menthe marocain servi avec des pâtisseries traditionnelles" class="img-fluid w-100" loading="lazy" style="height: 650px; object-fit: cover;">
+  </picture>
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    
+
+    <a href="#" id="back-to-top">
+      <i class="fa-solid fa-angles-up"></i>
+    </a>
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-content col-xl-8  px-4">
+                    <div class="row">
+                        <div class="col-lg-6 px-0">
+                            <div class="logo" data-aos="fade-down-right">
+                                <a href="./index.html">
+                                    <i class="fa fa-utensils me-3"></i>
+                                    <h1 class="mb-0">OUM KELTOUM</h1>
+                                </a>
+                            </div>
+                        </div>
+                        <div data-aos="fade-down" class="col-lg-6 pt-4 pt-lg-0 d-flex align-items-center justify-content-start justify-content-lg-end">
+                            <div class="social-icons d-flex">
+                                <ul class="d-flex mb-0 ps-0">
+                                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-facebook"></i></a></li>
+                                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-pinterest"></i></a></li>
+                                    <li class="mx-2"><a class="text-decoration-none text-white" href="#"><i class="fab fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-5 content-desc" data-aos="fade-right">
+                        <p class="px-0">Découvrez l'authenticité de la cuisine marocaine chez OUM KELTOUM. Depuis 2008, nous vous proposons des plats traditionnels préparés avec des épices authentiques importées directement du Maroc. Notre restaurant familial vous accueille dans une ambiance chaleureuse et conviviale, fidèle à l'hospitalité marocaine.</p>
+                    </div>
+                    <div class="row" data-aos="fade-right">
+                        <div class="d-flex flex-column flex-lg-row px-0 justify-content-between">
+                            <div class="location d-flex align-items-center pe-2 py-3">
+                                <i class="fa-solid fa-location-dot text-white fa-2x border-bottom pb-2"></i>
+                                <div class="ps-3">
+                                    <p class="mb-0">
+                                        45 Avenue Mohammed V, Casablanca <br>
+                                        Quartier des Habous, Marrakech
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="location d-flex align-items-center pe-2 py-3">
+                                <i class="fa-solid fa-mobile text-white fa-2x border-bottom pb-2"></i>
+                                <div class="ps-3">
+                                    <p class="mb-0">
+                                        <a style="text-decoration: none;color:white" href="tel:+212 620202020">+212 620202020</a> <br>
+                                        <a style="text-decoration: none;color:white" href="tel:+212 620202020">+212 620202020</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="location d-flex align-items-center pe-2 py-3">
+                                <i class="fa-solid fa-envelope text-white fa-2x border-bottom pb-2"></i>
+                                <div class="ps-3">
+                                    <p class="mb-0">
+                                        contact@oumkeltoum.ma <br>
+                                        reservation@oumkeltoum.ma
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="reservation-box" data-aos="fade-down-left">
+                        <div class="reservation-wrapper">
+                            <h2>Horaires d'Ouverture</h2>
+                            <div class="reservation-date-time">
+                                <p>Lundi: ............................ 12:00 - 02:00</p>
+                                <p>Mardi: ............................ 12:00 - 02:00</p>
+                                <p>Mercredi: ........................ 12:00 - 02:00</p>
+                                <p>Jeudi: ............................. 12:00 - 02:00</p>
+                                <p>Vendredi: ........................ 12:00 - 02:00</p>
+                                <p>Samedi: .......................... 12:00 - 02:00</p>
+                                <p>Dimanche: ....................... 12:00 - 02:00</p>
+                            </div>
+                            <h2 class="pb-2">Réservations</h2>
+                            <h3><a style="color:white" href="tel:+212 620202020">+212 620202020</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="text-center pt-4 mt-3 pt-lg-0">&copy; <span id="copyrightCurrentYear">2024</span> <b> OUM KELTOUM.</b> All rights reserved. Design by <a href="mailto:contact@anassbenfares.com" class="fw-bold author-name">Anass benfares</a></p>
+            </div>
+        </div>
+    </footer>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer src="./assets/js/script.js"></script>
+
+    <!-- Performance Monitoring -->
+    <script defer src="./assets/js/performance-monitor.js"></script>
+
+    <!-- WebP Support -->
+    <script defer src="./webp-support.js"></script>
+  </body>
+</html>

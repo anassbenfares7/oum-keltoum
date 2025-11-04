@@ -1,0 +1,417 @@
+{
+  "categories": [
+    {
+      "id": "salades",
+      "name": "SALADES",
+      "icon": "fas fa-leaf",
+      "items": [
+        {
+          "id": "s1",
+          "name": "Salade Marocaine (سلطة مغربية)",
+          "description": "Thon, poivron, oignon, tomate et olives noires. (تونة، فلفل، بصل، طماطم و زيتون أسود.)",
+          "price": "27 DH",
+          "imageURL": "images/salad-01.jpg"
+        },
+        {
+          "id": "s2",
+          "name": "Assortiment de Salades Marocaines (تشكيلة من السلطات المغربية)",
+          "description": "Sélection de zaalouk, carottes confites et lentilles. (تشكيلة من الزعلوك، الجزر المعسل والعدس.)",
+          "price": "45 DH",
+          "imageURL": "images/salad-02.jpg"
+        },
+        {
+          "id": "s3",
+          "name": "Salade du Chef (سلطة الشيف)",
+          "description": "Composition spéciale du chef. (تركيبة خاصة من الشيف.)",
+          "price": "49 DH",
+          "imageURL": "images/salad-03.jpg"
+        }
+      ]
+    },
+    {
+      "id": "plats-traditionnels",
+      "name": "PLATS TRADITIONNELS",
+      "icon": "fas fa-utensils",
+      "items": [
+        {
+          "id": "pt1",
+          "name": "Tajine de Foie Mcharmel (طاجين كبدة مشرمل)",
+          "description": "Foie mijoté dans une sauce charmoula traditionnelle. (كبدة مطهوة في صلصة الشرمولة التقليدية.)",
+          "price": "90 DH",
+          "imageURL": "images/dish-01.jpg"
+        },
+        {
+          "id": "pt2",
+          "name": "Tajine Boulettes de Poisson (Merlan) (طاجين كرات السمك - الميرلا)",
+          "description": "Boulettes de merlan en tajine. (كرات سمك الميرلا في طاجين.)",
+          "price": "55 DH",
+          "imageURL": "images/dish-02.jpg"
+        },
+        {
+          "id": "pt3",
+          "name": "Pastilla Poulet (بسطيلة بالدجاج)",
+          "description": "Feuilleté traditionnel au poulet et amandes. (ورقة البسطيلة التقليدية بالدجاج واللوز.)",
+          "price": "85 DH",
+          "imageURL": "images/dish-03.jpg"
+        },
+        {
+          "id": "pt4",
+          "name": "Pastilla Fruits de Mer (بسطيلة بفواكه البحر)",
+          "description": "Feuilleté croustillant aux fruits de mer et vermicelles. (ورقة البسطيلة المقرمشة بفواكه البحر والشعرية الصينية.)",
+          "price": "95 DH",
+          "imageURL": "images/dish-04.jpg"
+        },
+        {
+          "id": "pt5",
+          "name": "Tajine Poulet (طاجين بالدجاج)",
+          "description": "Tajine de poulet aux olives et citron confit. (طاجين الدجاج بالزيتون والليمون المصير.)",
+          "price": "48 DH",
+          "imageURL": "images/dish-05.jpg"
+        },
+        {
+          "id": "pt6",
+          "name": "Un Demi-Poulet Rôti (نصف دجاجة محمرة)",
+          "description": "Demi-poulet rôti à la marocaine. (نصف دجاجة محمرة على الطريقة المغربية.)",
+          "price": "86 DH",
+          "imageURL": "images/dish-06.jpg"
+        },
+        {
+          "id": "pt7",
+          "name": "Poulet Entier Rôti (دجاجة كاملة محمرة)",
+          "description": "Poulet entier rôti, idéal à partager. (دجاجة كاملة محمرة، مثالية للمشاركة.)",
+          "price": "145 DH",
+          "imageURL": "images/dish-07.jpg"
+        },
+        {
+          "id": "pt8",
+          "name": "Un Demi-Kilo de Tajine de Veau (نصف كيلو طاجين لحم العجل)",
+          "description": "500g de veau mijoté en tajine. (500 جرام من لحم العجل المطهو في طاجين.)",
+          "price": "120 DH",
+          "imageURL": "images/dish-08.jpg"
+        },
+        {
+          "id": "pt9",
+          "name": "Un Kilo de Tajine de Veau (كيلو طاجين لحم العجل)",
+          "description": "1kg de veau mijoté en tajine, parfait pour plusieurs personnes. (1 كيلو من لحم العجل المطهو في طاجين، مثالي لعدة أشخاص.)",
+          "price": "220 DH",
+          "imageURL": "images/dish-01.jpg"
+        },
+        {
+          "id": "pt10",
+          "name": "Tajine de Viande aux Prunes (طاجين اللحم بالبرقوق)",
+          "description": "Viande mijotée avec des pruneaux et des amandes. (لحم مطهو مع البرقوق واللوز.)",
+          "price": "80 DH",
+          "imageURL": "images/dish-04.jpg"
+        },
+        {
+          "id": "pt11",
+          "name": "Tajine Viande aux Oeufs (طاجين اللحم بالبيض)",
+          "description": "Tajine de viande hachée avec des œufs. (طاجين اللحم المفروم مع البيض.)",
+          "price": "62 DH",
+          "imageURL": "images/dish-05.jpg"
+        },
+        {
+          "id": "pt12",
+          "name": "Seffa Sucré (السفة الحلوة)",
+          "description": "Vermicelles fins à la cannelle et au sucre glace. (شعرية رقيقة بالقرفة والسكر البودرة.)",
+          "price": "39 DH",
+          "imageURL": "images/dish-06.jpg"
+        },
+        {
+          "id": "pt13",
+          "name": "Seffa M'dfouna (السفة المدفونة)",
+          "description": "Vermicelles fins garnis de poulet ou de viande. (شعرية رقيقة محشوة بالدجاج أو اللحم.)",
+          "price": "49 DH",
+          "imageURL": "images/dish-07.jpg"
+        },
+        {
+            "id": "pt14",
+            "name": "Couscous Viande ou Poulet (كسكس باللحم أو الدجاج)",
+            "description": "Couscous traditionnel à la viande ou au poulet. (كسكس تقليدي باللحم أو الدجاج.)",
+            "price": "49 DH",
+            "imageURL": "images/dish-08.jpg"
+        },
+        {
+            "id": "pt15",
+            "name": "Rfissa (الرفيسة)",
+            "description": "Plat traditionnel à base de msemmen, lentilles et poulet. (Disponible Mercredi et Jeudi) (طبق تقليدي مكون من المسمن والعدس والدجاج. (متوفر الأربعاء والخميس))",
+            "price": "49 DH",
+            "imageURL": "images/dish-07.jpg"
+        },
+        {
+            "id": "pt16",
+            "name": "Tajine Cervelle (طاجين المخ)",
+            "description": "Tajine de cervelle d'agneau aux épices. (طاجين مخ الخروف بالتوابل.)",
+            "price": "80 DH",
+            "imageURL": "images/dish-08.jpg"
+        },
+        {
+            "id": "pt17",
+            "name": "Tajine Kabab Maghdore (طاجين كباب مغدور)",
+            "description": "Tajine de kebab mariné et mijoté. (طاجين كباب متبل ومطهو.)",
+            "price": "85 DH",
+            "imageURL": "images/dish-10.jpg"
+        },
+        {
+            "id": "pt18",
+            "name": "Tanjia Viande (1/2 kg) (طنجية باللحم - نصف كيلو)",
+            "description": "Demi-kilo de tanjia de viande au safran pur et smen. (نصف كيلو من طنجية اللحم بالزعفران الحر والسمن.)",
+            "price": "120 DH",
+            "imageURL": "images/dish-11.jpg"
+        },
+        {
+            "id": "pt19",
+            "name": "Tanjia Viande (1 kg) (طنجية باللحم - 1 كيلو)",
+            "description": "Un kilo de tanjia de viande au safran pur et smen. (كيلو من طنجية اللحم بالزعفران الحر والسمن.)",
+            "price": "220 DH",
+            "imageURL": "images/dish-01.jpg"
+        },
+        {
+            "id": "pt20",
+            "name": "Tanjia Poulet (1/2 kg) (طنجية بالدجاج - نصف كيلو)",
+            "description": "Demi-kilo de tanjia de poulet au safran pur et smen. (نصف كيلو من طنجية الدجاج بالزعفران الحر والسمن.)",
+            "price": "90 DH",
+            "imageURL": "images/dish-02.jpg"
+        },
+        {
+            "id": "pt21",
+            "name": "Tanjia Poulet (1 kg) (طنجية بالدجاج - 1 كيلو)",
+            "description": "Un kilo de tanjia de poulet au safran pur et smen. (كيلو من طنجية الدجاج بالزعفران الحر والسمن.)",
+            "price": "155 DH",
+            "imageURL": "images/dish-03.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pizza",
+      "name": "PIZZA",
+      "icon": "fas fa-pizza-slice",
+      "items": [
+        {
+          "id": "p1",
+          "name": "Pizza Margarita (بيتزا مارغاريتا)",
+          "description": "Sauce tomate, mozzarella et basilic. (صلصة الطماطم، الموزاريلا والريحان.)",
+          "price": "35 DH",
+          "imageURL": "images/dish-01.jpg"
+        },
+        {
+          "id": "p2",
+          "name": "Pizza Thon (بيتزا بالطون)",
+          "description": "Sauce tomate, mozzarella et thon. (صلصة الطماطم، الموزاريلا والطون.)",
+          "price": "43 DH",
+          "imageURL": "images/dish-02.jpg"
+        },
+        {
+          "id": "p3",
+          "name": "Pizza Poulet (بيتزا بالدجاج)",
+          "description": "Sauce tomate, mozzarella et poulet émincé. (صلصة الطماطم، الموزاريلا وشرائح الدجاج.)",
+          "price": "48 DH",
+          "imageURL": "images/dish-03.jpg"
+        },
+        {
+          "id": "p4",
+          "name": "Pizza Fruits de mer (بيتزا فواكه البحر)",
+          "description": "Garniture généreuse de fruits de mer frais. (حشوة غنية من فواكه البحر الطازجة.)",
+          "price": "55 DH",
+          "imageURL": "images/dish-04.jpg"
+        },
+        {
+          "id": "p5",
+          "name": "Pizza Viande hachée (بيتزا باللحم المفروم)",
+          "description": "Sauce tomate, mozzarella et viande hachée épicée. (صلصة الطماطم، الموزاريلا واللحم المفروم المتبل.)",
+          "price": "50 DH",
+          "imageURL": "images/dish-05.jpg"
+        },
+        {
+          "id": "p6",
+          "name": "Pizza Quatre saisons (بيتزا الفصول الأربعة)",
+          "description": "Quatre sections de garnitures différentes. (أربعة أقسام بحشوات مختلفة.)",
+          "price": "58 DH",
+          "imageURL": "images/dish-06.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tacos",
+      "name": "TACOS",
+      "icon": "fas fa-hamburger",
+      "items": [
+        {
+          "id": "t1",
+          "name": "Tacos Poulet (طاكوس بالدجاج)",
+          "description": "Tacos garni de poulet mariné. (طاكوس محشو بالدجاج المتبل.)",
+          "price": "42 DH",
+          "imageURL": "images/dish-07.jpg"
+        },
+        {
+          "id": "t2",
+          "name": "Tacos Mixte (طاكوس ميكست)",
+          "description": "Mélange de différentes viandes. (خليط من اللحوم المختلفة.)",
+          "price": "50 DH",
+          "imageURL": "images/dish-08.jpg"
+        },
+        {
+          "id": "t3",
+          "name": "Tacos Viande Hachée (طاكوس باللحم المفروم)",
+          "description": "Tacos à la viande hachée savoureuse. (طاكوس باللحم المفروم اللذيذ.)",
+          "price": "48 DH",
+          "imageURL": "images/dish-10.jpg"
+        },
+        {
+          "id": "t4",
+          "name": "Tacos Kelthom (طاكوس كلثوم)",
+          "description": "La spécialité de la maison. (تخصص المطعم.)",
+          "price": "58 DH",
+          "imageURL": "images/dish-11.jpg"
+        }
+      ]
+    },
+    {
+      "id": "boissons",
+      "name": "BOISSONS",
+      "icon": "fas fa-glass-cheers",
+      "items": [
+        {
+          "id": "b1",
+          "name": "Eau minérale (0.5L) (ماء معدني - 0.5 لتر)",
+          "description": "Petite bouteille d'eau minérale. (قنينة صغيرة من الماء المعدني.)",
+          "price": "9 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b2",
+          "name": "Eau minérale (1.5L) (ماء معدني - 1.5 لتر)",
+          "description": "Grande bouteille d'eau minérale. (قنينة كبيرة من الماء المعدني.)",
+          "price": "15 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b3",
+          "name": "Eau gazeuse (1.2L) (ماء غازي - 1.2 لتر)",
+          "description": "Bouteille d'eau pétillante. (قنينة ماء فوار.)",
+          "price": "10 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b4",
+          "name": "Eau gazeuse (1.5L) (ماء غازي - 1.5 لتر)",
+          "description": "Grande bouteille d'eau pétillante. (قنينة كبيرة من الماء الفوار.)",
+          "price": "16 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b5",
+          "name": "Soda (مشروب غازي)",
+          "description": "Boisson gazeuse au choix. (مشروب غازي من اختيارك.)",
+          "price": "12 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b6",
+          "name": "Jus d'orange (عصير البرتقال)",
+          "description": "Jus d'oranges fraîchement pressées. (عصير برتقال طازج.)",
+          "price": "25 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b7",
+          "name": "Jus de banane (عصير الموز)",
+          "description": "Jus onctueux à la banane. (عصير موز كريمي.)",
+          "price": "25 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b8",
+          "name": "Jus de papaye (عصير البابايا)",
+          "description": "Jus tropical de papaye. (عصير البابايا الاستوائي.)",
+          "price": "25 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b9",
+          "name": "Jus d'avocat (عصير الأفوكادو)",
+          "description": "Smoothie crémeux à l'avocat. (سموذي الأفوكادو الكريمي.)",
+          "price": "30 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b10",
+          "name": "Jus de mangue (عصير المانجو)",
+          "description": "Jus de mangue frais et sucré. (عصير مانجو طازج وحلو.)",
+          "price": "30 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b11",
+          "name": "Jus d'avocat et fruits secs (عصير الأفوكادو بالفواكه الجافة)",
+          "description": "Smoothie d'avocat enrichi aux fruits secs. (سموذي الأفوكادو مع الفواكه الجافة.)",
+          "price": "35 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b12",
+          "name": "Jus panaché au lait (عصير بـانـاشـي بالحليب)",
+          "description": "Cocktail de fruits mixés avec du lait. (كوكتيل فواكه مخلوطة مع الحليب.)",
+          "price": "35 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "b13",
+          "name": "Jus cocktail à l'orange (كوكتيل عصير بالبرتقال)",
+          "description": "Mélange de jus de fruits à base d'orange. (مزيج من عصائر الفاكهة على أساس البرتقال.)",
+          "price": "35 DH",
+          "imageURL": "images/banner-img.png"
+        }
+      ]
+    },
+    {
+      "id": "boissons-chaudes",
+      "name": "BOISSONS CHAUDES",
+      "icon": "fas fa-coffee",
+      "items": [
+        {
+          "id": "bc1",
+          "name": "Petite théière (براد شاي صغير)",
+          "description": "Théière de thé à la menthe (petite taille). (براد شاي بالنعناع - حجم صغير.)",
+          "price": "15 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "bc2",
+          "name": "Moyenne théière (براد شاي متوسط)",
+          "description": "Théière de thé à la menthe (taille moyenne). (براد شاي بالنعناع - حجم متوسط.)",
+          "price": "20 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "bc3",
+          "name": "Grande théière (براد شاي كبير)",
+          "description": "Théière de thé à la menthe (grande taille). (براد شاي بالنعناع - حجم كبير.)",
+          "price": "28 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "bc4",
+          "name": "Lait chaud (حليب ساخن)",
+          "description": "Un verre de lait chaud réconfortant. (كوب من الحليب الساخن.)",
+          "price": "18 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "bc5",
+          "name": "Café noir (قهوة سوداء)",
+          "description": "Café expresso. (قهوة اسبريسو.)",
+          "price": "18 DH",
+          "imageURL": "images/banner-img.png"
+        },
+        {
+          "id": "bc6",
+          "name": "Café au lait (قهوة بالحليب)",
+          "description": "Café avec du lait chaud. (قهوة مع حليب ساخن.)",
+          "price": "22 DH",
+          "imageURL": "images/banner-img.png"
+        }
+      ]
+    }
+  ]
+}
