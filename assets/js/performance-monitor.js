@@ -173,7 +173,9 @@ class PerformanceMonitor {
     }
 
     reportToCustomEndpoint() {
-        // Send performance metrics to custom endpoint
+        // Send performance metrics to custom endpoint (DISABLED to avoid 405 errors)
+        // Note: Uncomment this section if you have a backend API endpoint
+        /*
         setTimeout(() => {
             const data = {
                 url: window.location.href,
@@ -198,6 +200,7 @@ class PerformanceMonitor {
                 // Silently fail if endpoint doesn't exist
             });
         }, 5000);
+        */
     }
 
     getPerformanceScore() {
