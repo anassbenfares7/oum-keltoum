@@ -1,6 +1,6 @@
 /* Reservation Form Styles */
 .reservation-form {
-    background-color: var(--color-background, #FFF8DC);
+    background-color: var(--color-background, #fefefe);
     border-radius: 8px;
     padding: 2rem;
 }
