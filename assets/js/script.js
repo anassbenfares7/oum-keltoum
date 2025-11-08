@@ -686,21 +686,26 @@ function initializeLightbox() {
 
   // Advanced open lightbox with elastic overshoot animation
   async function openLightbox(imageUrl, title, clickElement) {
-    // Get click position for animation origin
-    const clickRect = clickElement.getBoundingClientRect();
-    const clickX = clickRect.left + clickRect.width / 2;
-    const clickY = clickRect.top + clickRect.height / 2;
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
 
     // Show lightbox first
     lightbox.style.display = 'flex';
     lightbox.classList.remove('closing');
 
-    // Set transform origin to click position for origin-based animation
     const content = lightbox.querySelector('.menu-lightbox-content');
-    content.style.transformOrigin = `${clickX}px ${clickY}px`;
 
-    // Force reflow to apply transform origin
-    content.offsetHeight;
+    // Only set custom transform origin on desktop
+    if (!isMobile) {
+      // Get click position for animation origin
+      const clickRect = clickElement.getBoundingClientRect();
+      const clickX = clickRect.left + clickRect.width / 2;
+      const clickY = clickRect.top + clickRect.height / 2;
+      content.style.transformOrigin = `${clickX}px ${clickY}px`;
+
+      // Force reflow to apply transform origin
+      content.offsetHeight;
+    }
 
     // Trigger animation with elastic overshoot effect
     requestAnimationFrame(() => {
@@ -749,8 +754,8 @@ function initializeLightbox() {
       link.classList.remove('lightbox-active');
     });
 
-    // If click element provided, animate back to origin
-    if (clickElement) {
+    // Only animate back to origin on desktop (not mobile)
+    if (clickElement && window.innerWidth > 768) {
       const clickRect = clickElement.getBoundingClientRect();
       const clickX = clickRect.left + clickRect.width / 2;
       const clickY = clickRect.top + clickRect.height / 2;

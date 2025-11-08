@@ -248,8 +248,20 @@
 @media (max-width: 768px) {
   .menu-lightbox-content {
     max-width: 95%;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) scale(0) rotate(-5deg) !important;
+    transform-origin: center !important;
   }
-  
+
+  .menu-lightbox.active .menu-lightbox-content {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg) !important;
+  }
+
+  .menu-lightbox.closing .menu-lightbox-content {
+    transform: translate(-50%, -50%) scale(0.3) rotate(5deg) !important;
+  }
+
   .menu-lightbox-close {
     top: 10px;
     right: 10px;
