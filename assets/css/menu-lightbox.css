@@ -247,19 +247,20 @@
 
 @media (max-width: 768px) {
   .menu-lightbox-content {
+    position: relative !important;
     max-width: 95%;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) scale(0) rotate(-5deg) !important;
+    max-height: 90vh;
+    margin: 20px;
+    transform: scale(0) rotate(-5deg) !important;
     transform-origin: center !important;
   }
 
   .menu-lightbox.active .menu-lightbox-content {
-    transform: translate(-50%, -50%) scale(1) rotate(0deg) !important;
+    transform: scale(1) rotate(0deg) !important;
   }
 
   .menu-lightbox.closing .menu-lightbox-content {
-    transform: translate(-50%, -50%) scale(0.3) rotate(5deg) !important;
+    transform: scale(0.3) rotate(5deg) !important;
   }
 
   .menu-lightbox-close {

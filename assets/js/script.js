@@ -686,17 +686,17 @@ function initializeLightbox() {
 
   // Advanced open lightbox with elastic overshoot animation
   async function openLightbox(imageUrl, title, clickElement) {
-    // Check if mobile device
-    const isMobile = window.innerWidth <= 768;
-
     // Show lightbox first
     lightbox.style.display = 'flex';
     lightbox.classList.remove('closing');
 
     const content = lightbox.querySelector('.menu-lightbox-content');
 
-    // Only set custom transform origin on desktop
-    if (!isMobile) {
+    // Set transform origin to center for mobile, click position for desktop
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      content.style.transformOrigin = 'center';
+    } else {
       // Get click position for animation origin
       const clickRect = clickElement.getBoundingClientRect();
       const clickX = clickRect.left + clickRect.width / 2;
