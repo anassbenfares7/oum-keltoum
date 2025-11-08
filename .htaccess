@@ -77,8 +77,8 @@
 
 # Preload hints for critical resources
 <IfModule mod_headers.c>
-    Header set Link "<./assets/css/style.min.css>; rel=preload; as=style"
-    Header set Link "<./assets/js/script.min.js>; rel=preload; as=script"
+    Header set Link "<./assets/css/style.css>; rel=preload; as=style"
+    Header set Link "<./assets/js/script.js>; rel=preload; as=script"
     Header set Link "<./assets/images/banner-img.webp>; rel=preload; as=image"
 </IfModule>
 

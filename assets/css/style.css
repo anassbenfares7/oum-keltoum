@@ -348,7 +348,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   text-align: center; /* added this */
   flex-direction: column;
-  z-index: 12;
+  z-index: 500;
 }
 
 .loader p {
@@ -775,7 +775,7 @@ header.scrolled {
   height: auto;
   background-repeat: no-repeat;
   background-size: cover;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .banner .banner-content {
@@ -801,9 +801,7 @@ header.scrolled {
   height: auto;
 }
 
-.banner .banner-img {
-  overflow: hidden;
-}
+
 
 .banner img {
   width: 550px;
@@ -2527,8 +2525,7 @@ footer p {
 @media (max-width: 768px) { /* This code only targets mobile-sized screens */
 
   .banner {
-    min-height: 100vh; /* Changed from fixed height to allow scrolling */
-    overflow: visible; /* Ensures content beyond banner is scrollable */
+    height: 100vh; /* This is the key: makes the banner 100% of the screen height */
     padding-top: 0;    /* Removes the original padding to make room */
     padding-bottom: 0; /* Removes the original padding to make room */
   }

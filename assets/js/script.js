@@ -1,6 +1,144 @@
-AOS.init({
-  offset: '140', // 50% viewport height ka offset
-});
+/**
+ * LOADER ANIMATION FIX - Page Load Based Solution
+ * Waits for full page load instead of fixed timeout
+ */
+(function() {
+    'use strict';
+
+    // Configuration
+    const CONFIG = {
+        MINIMUM_LOADER_TIME: 1500,    // Minimum 1.5s for good UX
+        MAXIMUM_LOADER_TIME: 8000,    // Maximum 8s timeout for safety
+        FADE_DURATION: 500,           // 0.5s fade out
+        AOS_DELAY: 100                // Delay before AOS init
+    };
+
+    // State management
+    let loaderElement = null;
+    let startTime = null;
+    let pageLoaded = false;
+
+    // Initialize loader control
+    function initLoaderControl() {
+        loaderElement = document.querySelector('.loader');
+
+        if (!loaderElement) {
+            // No loader found, initialize AOS and exit
+            initializeAOS();
+            return;
+        }
+
+        // Record start time
+        startTime = Date.now();
+
+        // Disable scrolling while loader is visible
+        disableScrolling();
+
+        // Wait for full page load (images, fonts, scripts, etc.)
+        window.addEventListener('load', onPageLoad);
+
+        // Safety net: maximum timeout for extremely slow connections
+        setTimeout(() => {
+            if (!pageLoaded) {
+                console.log('⚠️ Loading timeout - removing loader for user experience');
+                onPageLoad();
+            }
+        }, CONFIG.MAXIMUM_LOADER_TIME);
+    }
+
+    // Called when page is fully loaded
+    function onPageLoad() {
+        pageLoaded = true;
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, CONFIG.MINIMUM_LOADER_TIME - elapsedTime);
+
+        // Ensure minimum loader time for good UX
+        setTimeout(() => {
+            fadeOutLoader();
+        }, remainingTime);
+    }
+
+    // Disable scrolling during loader
+    function disableScrolling() {
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        window.scrollTo(0, 0);
+    }
+
+    // Enable scrolling after loader
+    function enableScrolling() {
+        document.body.style.overflow = '';
+        document.body.style.overflowY = 'auto';
+        document.documentElement.style.overflow = '';
+        document.documentElement.style.overflowY = 'auto';
+
+        // Force browser layout recalculation
+        document.body.offsetHeight;
+    }
+
+    // Fade out loader smoothly
+    function fadeOutLoader() {
+        loaderElement.style.transition = `opacity ${CONFIG.FADE_DURATION}ms ease-out`;
+        loaderElement.style.opacity = '0';
+
+        setTimeout(() => {
+            removeLoader();
+        }, CONFIG.FADE_DURATION);
+    }
+
+    // Remove loader and restore scrolling
+    function removeLoader() {
+        loaderElement.remove();
+        loaderElement = null;
+
+        // Restore scrolling
+        enableScrolling();
+
+        // Initialize AOS after scroll is restored
+        setTimeout(() => {
+            initializeAOS();
+        }, CONFIG.AOS_DELAY);
+
+        console.log('✅ Loader removed - Page fully loaded, scrolling enabled');
+    }
+
+    // Handle window resize events
+    function handleResize() {
+        if (pageLoaded && loaderElement === null) {
+            // Only recalculate if loader is already removed
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLoaderControl);
+    } else {
+        initLoaderControl();
+    }
+
+    // Handle resize events
+    window.addEventListener('resize', handleResize);
+
+})();
+
+// AOS initialization function (called by loader)
+function initializeAOS() {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      offset: 140,
+      once: true,
+      duration: 800
+    });
+
+    // Refresh AOS after a short delay to ensure proper calculations
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+  }
+}
 
 // Include components functionality
 document.addEventListener("DOMContentLoaded", function() {
@@ -48,25 +186,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  try {
-    const loader = document.querySelector('.loader');
-    if (loader) {
-      setTimeout(() => {
-        loader.style.transition = 'opacity 0.5s ease-out';
-        loader.style.opacity = '0';
-        setTimeout(() => {
-          loader.remove(); // Completely remove from DOM
-        }, 500);
-      }, 2000); // Reduced timeout
-    }
-  } catch (error) {
-    console.error('Error handling loader:', error);
-    // Fallback: remove loader immediately if error occurs
-    const loader = document.querySelector('.loader');
-    if (loader) loader.remove();
-  }
-});
 
 // Header functionality
 var getHamburgerIcon = document.getElementById("hamburger");
