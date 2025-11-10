@@ -276,91 +276,91 @@
           "name": "Eau minérale (0.5L) (ماء معدني - 0.5 لتر)",
           "description": "Petite bouteille d'eau minérale. (قنينة صغيرة من الماء المعدني.)",
           "price": "9 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b2",
           "name": "Eau minérale (1.5L) (ماء معدني - 1.5 لتر)",
           "description": "Grande bouteille d'eau minérale. (قنينة كبيرة من الماء المعدني.)",
           "price": "15 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b3",
           "name": "Eau gazeuse (1.2L) (ماء غازي - 1.2 لتر)",
           "description": "Bouteille d'eau pétillante. (قنينة ماء فوار.)",
           "price": "10 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b4",
           "name": "Eau gazeuse (1.5L) (ماء غازي - 1.5 لتر)",
           "description": "Grande bouteille d'eau pétillante. (قنينة كبيرة من الماء الفوار.)",
           "price": "16 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b5",
           "name": "Soda (مشروب غازي)",
           "description": "Boisson gazeuse au choix. (مشروب غازي من اختيارك.)",
           "price": "12 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b6",
           "name": "Jus d'orange (عصير البرتقال)",
           "description": "Jus d'oranges fraîchement pressées. (عصير برتقال طازج.)",
           "price": "25 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b7",
           "name": "Jus de banane (عصير الموز)",
           "description": "Jus onctueux à la banane. (عصير موز كريمي.)",
           "price": "25 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b8",
           "name": "Jus de papaye (عصير البابايا)",
           "description": "Jus tropical de papaye. (عصير البابايا الاستوائي.)",
           "price": "25 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b9",
           "name": "Jus d'avocat (عصير الأفوكادو)",
           "description": "Smoothie crémeux à l'avocat. (سموذي الأفوكادو الكريمي.)",
           "price": "30 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b10",
           "name": "Jus de mangue (عصير المانجو)",
           "description": "Jus de mangue frais et sucré. (عصير مانجو طازج وحلو.)",
           "price": "30 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b11",
           "name": "Jus d'avocat et fruits secs (عصير الأفوكادو بالفواكه الجافة)",
           "description": "Smoothie d'avocat enrichi aux fruits secs. (سموذي الأفوكادو مع الفواكه الجافة.)",
           "price": "35 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b12",
           "name": "Jus panaché au lait (عصير بـانـاشـي بالحليب)",
           "description": "Cocktail de fruits mixés avec du lait. (كوكتيل فواكه مخلوطة مع الحليب.)",
           "price": "35 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "b13",
           "name": "Jus cocktail à l'orange (كوكتيل عصير بالبرتقال)",
           "description": "Mélange de jus de fruits à base d'orange. (مزيج من عصائر الفاكهة على أساس البرتقال.)",
           "price": "35 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         }
       ]
     },
@@ -374,42 +374,42 @@
           "name": "Petite théière (براد شاي صغير)",
           "description": "Théière de thé à la menthe (petite taille). (براد شاي بالنعناع - حجم صغير.)",
           "price": "15 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "bc2",
           "name": "Moyenne théière (براد شاي متوسط)",
           "description": "Théière de thé à la menthe (taille moyenne). (براد شاي بالنعناع - حجم متوسط.)",
           "price": "20 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "bc3",
           "name": "Grande théière (براد شاي كبير)",
           "description": "Théière de thé à la menthe (grande taille). (براد شاي بالنعناع - حجم كبير.)",
           "price": "28 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "bc4",
           "name": "Lait chaud (حليب ساخن)",
           "description": "Un verre de lait chaud réconfortant. (كوب من الحليب الساخن.)",
           "price": "18 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "bc5",
           "name": "Café noir (قهوة سوداء)",
           "description": "Café expresso. (قهوة اسبريسو.)",
           "price": "18 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         },
         {
           "id": "bc6",
           "name": "Café au lait (قهوة بالحليب)",
           "description": "Café avec du lait chaud. (قهوة مع حليب ساخن.)",
           "price": "22 DH",
-          "imageURL": "images/banner-img.png"
+          "imageURL": ""
         }
       ]
     }

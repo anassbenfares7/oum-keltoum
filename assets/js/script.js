@@ -684,6 +684,7 @@ function initializeLightbox() {
     });
   }
 
+  
   // Advanced open lightbox with elastic overshoot animation
   async function openLightbox(imageUrl, title, clickElement) {
     // Show lightbox first
@@ -729,19 +730,19 @@ function initializeLightbox() {
       return;
     }
 
-    // Simple image loading with placeholder fallback
-    try {
-      // Try to preload the main image first
-      const finalImageUrl = await preloadImage(imageUrl);
-      lightboxImage.src = finalImageUrl;
-      lightboxImage.style.display = 'block';
-      lightboxPlaceholder.style.display = 'none';
-    } catch (error) {
-      // If everything fails, show placeholder
+    // Simple image loading - fast and reliable
+    if (imageUrl === 'not-available') {
       lightboxImage.src = './assets/images/photo-not-available.svg';
-      lightboxImage.style.display = 'block';
-      lightboxPlaceholder.style.display = 'none';
+    } else {
+      lightboxImage.src = imageUrl;
+      // Add error handler to show placeholder if image fails to load
+      lightboxImage.onerror = function() {
+        this.src = './assets/images/photo-not-available.svg';
+      };
     }
+    lightboxImage.alt = title;
+    lightboxImage.style.display = 'block';
+    lightboxPlaceholder.style.display = 'none';
   }
 
   // Enhanced close lightbox with smooth return animation
