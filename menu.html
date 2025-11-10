@@ -72,10 +72,9 @@
     <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
 
     <!-- Preload critical JavaScript -->
-    <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" as="script">
-    <link rel="preload" href="./assets/js/script.min.js" as="script">
-    <link rel="preload" href="./assets/images/banner-img.webp" as="image">
+    <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" as="script" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    <link rel="preload" href="./assets/js/script.js" as="script">
     <!-- Google Fonts Montserrat -->    
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -263,7 +262,7 @@
             <div class="menu-lightbox-content">
                 <picture>
                     <source srcset="" type="image/webp">
-                    <img src="" alt="Agrandissement du plat sélectionné du menu OUM KELTOUM" class="menu-lightbox-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="" alt="Agrandissement du plat sélectionné du menu OUM KELTOUM" class="menu-lightbox-image" loading="lazy">
                 </picture>
                 <div class="menu-lightbox-placeholder" style="display: none;">
                     <i class="fas fa-image"></i>
@@ -364,7 +363,7 @@
             </div>
         </div>
     </footer>
-    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script
       defer
@@ -376,6 +375,5 @@
     <script defer src="./assets/js/script.js"></script>
 
     <!-- WebP Support -->
-    <script defer src="./webp-support.js"></script>
-    </body>
+      </body>
 </html>

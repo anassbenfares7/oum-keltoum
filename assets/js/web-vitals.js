@@ -105,10 +105,7 @@ class WebVitalsMonitor {
       }
     }
 
-    // Only log in development or when monitoring is enabled
-    if (window.location.search.includes('debug=performance')) {
-      console.log(`📊 ${name}: ${value.toFixed(2)} (${rating})`);
-    }
+    
 
     // Store for analytics
     if (window.gtag) {

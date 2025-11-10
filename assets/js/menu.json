@@ -136,7 +136,7 @@
             "name": "Rfissa (الرفيسة)",
             "description": "Plat traditionnel à base de msemmen, lentilles et poulet. (Disponible Mercredi et Jeudi) (طبق تقليدي مكون من المسمن والعدس والدجاج. (متوفر الأربعاء والخميس))",
             "price": "49 DH",
-            "imageURL": "images/dish-07.jpg"
+            "imageURL": ""
         },
         {
             "id": "pt16",
@@ -192,42 +192,42 @@
           "name": "Pizza Margarita (بيتزا مارغاريتا)",
           "description": "Sauce tomate, mozzarella et basilic. (صلصة الطماطم، الموزاريلا والريحان.)",
           "price": "35 DH",
-          "imageURL": "images/dish-01.jpg"
+          "imageURL": ""
         },
         {
           "id": "p2",
           "name": "Pizza Thon (بيتزا بالطون)",
           "description": "Sauce tomate, mozzarella et thon. (صلصة الطماطم، الموزاريلا والطون.)",
           "price": "43 DH",
-          "imageURL": "images/dish-02.jpg"
+          "imageURL": ""
         },
         {
           "id": "p3",
           "name": "Pizza Poulet (بيتزا بالدجاج)",
           "description": "Sauce tomate, mozzarella et poulet émincé. (صلصة الطماطم، الموزاريلا وشرائح الدجاج.)",
           "price": "48 DH",
-          "imageURL": "images/dish-03.jpg"
+          "imageURL": ""
         },
         {
           "id": "p4",
           "name": "Pizza Fruits de mer (بيتزا فواكه البحر)",
           "description": "Garniture généreuse de fruits de mer frais. (حشوة غنية من فواكه البحر الطازجة.)",
           "price": "55 DH",
-          "imageURL": "images/dish-04.jpg"
+          "imageURL": ""
         },
         {
           "id": "p5",
           "name": "Pizza Viande hachée (بيتزا باللحم المفروم)",
           "description": "Sauce tomate, mozzarella et viande hachée épicée. (صلصة الطماطم، الموزاريلا واللحم المفروم المتبل.)",
           "price": "50 DH",
-          "imageURL": "images/dish-05.jpg"
+          "imageURL": ""
         },
         {
           "id": "p6",
           "name": "Pizza Quatre saisons (بيتزا الفصول الأربعة)",
           "description": "Quatre sections de garnitures différentes. (أربعة أقسام بحشوات مختلفة.)",
           "price": "58 DH",
-          "imageURL": "images/dish-06.jpg"
+          "imageURL": ""
         }
       ]
     },
@@ -241,28 +241,28 @@
           "name": "Tacos Poulet (طاكوس بالدجاج)",
           "description": "Tacos garni de poulet mariné. (طاكوس محشو بالدجاج المتبل.)",
           "price": "42 DH",
-          "imageURL": "images/dish-07.jpg"
+          "imageURL": ""
         },
         {
           "id": "t2",
           "name": "Tacos Mixte (طاكوس ميكست)",
           "description": "Mélange de différentes viandes. (خليط من اللحوم المختلفة.)",
           "price": "50 DH",
-          "imageURL": "images/dish-08.jpg"
+          "imageURL": ""
         },
         {
           "id": "t3",
           "name": "Tacos Viande Hachée (طاكوس باللحم المفروم)",
           "description": "Tacos à la viande hachée savoureuse. (طاكوس باللحم المفروم اللذيذ.)",
           "price": "48 DH",
-          "imageURL": "images/dish-10.jpg"
+          "imageURL": ""
         },
         {
           "id": "t4",
           "name": "Tacos Kelthom (طاكوس كلثوم)",
           "description": "La spécialité de la maison. (تخصص المطعم.)",
           "price": "58 DH",
-          "imageURL": "images/dish-11.jpg"
+          "imageURL": ""
         }
       ]
     },

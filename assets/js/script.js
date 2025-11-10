@@ -40,7 +40,6 @@
         // Safety net: maximum timeout for extremely slow connections
         setTimeout(() => {
             if (!pageLoaded) {
-                console.log('⚠️ Loading timeout - removing loader for user experience');
                 onPageLoad();
             }
         }, CONFIG.MAXIMUM_LOADER_TIME);
@@ -99,7 +98,6 @@
             initializeAOS();
         }, CONFIG.AOS_DELAY);
 
-        console.log('✅ Loader removed - Page fully loaded, scrolling enabled');
     }
 
     // Handle window resize events
