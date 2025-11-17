@@ -2522,29 +2522,33 @@ footer p {
 
 /* view-menu-btn (Secondary Button) end */
 
-@media (max-width: 768px) { /* This code only targets mobile-sized screens */
-
+@media (max-width: 768px) {
   .banner {
-    height: 100vh; /* This is the key: makes the banner 100% of the screen height */
-    padding-top: 0;    /* Removes the original padding to make room */
-    padding-bottom: 0; /* Removes the original padding to make room */
+    height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .banner .container {
-    padding-top: 0;    /* Removes extra padding from the inner container */
-    padding-bottom: 0; /* Removes extra padding from the inner container */
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 1.3rem;
   }
 
   .banner .banner-content {
-    padding-right: 1rem !important; /* Overrides the 'pe-5' class */
+    padding-right: 1rem !important;
   }
 
   .banner .banner-content h1 {
-    font-size: 2.5rem; /* Makes the title a better size for mobile */
+    font-size: 4rem;
+  }
+  .banner .banner-content p {
+    font-size: 1.1rem;
   }
 
   .banner .banner-buttons {
-    justify-content: center; /* Centers the two buttons */
+    padding-top: 3.5rem;
+    justify-content: center;
   }
-
 }
+
