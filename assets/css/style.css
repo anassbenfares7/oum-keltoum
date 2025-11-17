@@ -2532,7 +2532,6 @@ footer p {
   .banner .container {
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: 1.3rem;
   }
 
   .banner .banner-content {
@@ -2540,7 +2539,7 @@ footer p {
   }
 
   .banner .banner-content h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   .banner .banner-content p {
     font-size: 1.1rem;
